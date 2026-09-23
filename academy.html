@@ -1,0 +1,4392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VANTYX FX | Trading Academy</title>
+
+    <meta
+        name="description"
+        content="VANTYX FX Academy — structured trading education, practical courses, risk management, manual trading, automation and mentorship."
+    >
+
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =====================================================
+         ICONS
+    ====================================================== -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- =====================================================
+         GLOBAL PROJECT CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/animations.css"
+    >
+
+
+    <!-- =====================================================
+         ACADEMY PAGE CSS
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           ACADEMY VARIABLES
+        ===================================================== */
+
+        :root {
+            --academy-gold: #d6a84f;
+            --academy-gold-light: #f2d38a;
+            --academy-gold-dark: #9d7428;
+            --academy-cyan: #35d6ff;
+            --academy-success: #39d98a;
+            --academy-danger: #ff5c6c;
+
+            --academy-bg: #05070b;
+            --academy-bg-soft: #090d14;
+            --academy-card: rgba(13, 18, 28, 0.78);
+
+            --academy-text: #f5f7fa;
+            --academy-text-soft: #a9b2c0;
+            --academy-text-muted: #707b8c;
+
+            --academy-border: rgba(255,255,255,0.08);
+            --academy-border-gold: rgba(214,168,79,0.28);
+
+            --academy-radius: 18px;
+            --academy-radius-lg: 28px;
+
+            --academy-shadow:
+                0 25px 80px rgba(0,0,0,0.42);
+
+            --academy-transition:
+                0.3s ease;
+        }
+
+
+        /* =====================================================
+           GLOBAL ACADEMY HELPERS
+        ===================================================== */
+
+        .academy-section {
+            position: relative;
+            padding: 110px 0;
+            overflow: hidden;
+        }
+
+        .academy-section-header {
+            max-width: 800px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .academy-section-header h2 {
+            margin-top: 10px;
+            color: var(--academy-text);
+            font-size: clamp(2.15rem, 4vw, 3.8rem);
+            font-weight: 900;
+            line-height: 1.03;
+            letter-spacing: -0.05em;
+        }
+
+        .academy-section-header p {
+            max-width: 700px;
+            margin: 20px auto 0;
+            color: var(--academy-text-soft);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .academy-gradient {
+            background:
+                linear-gradient(
+                    110deg,
+                    var(--academy-gold-light),
+                    var(--academy-gold),
+                    #fff0bd
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .academy-icon {
+            position: relative;
+
+            width: 58px;
+            height: 58px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid
+                var(--academy-border-gold);
+
+            border-radius: 15px;
+
+            color:
+                var(--academy-gold-light);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(214,168,79,0.13),
+                    rgba(214,168,79,0.025)
+                );
+
+            box-shadow:
+                inset 0 0 20px
+                rgba(214,168,79,0.025),
+                0 0 30px
+                rgba(214,168,79,0.035);
+        }
+
+        .academy-icon::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 5px;
+
+            border:
+                1px solid
+                rgba(214,168,79,0.08);
+
+            border-radius: 11px;
+
+            pointer-events: none;
+        }
+
+        .academy-icon svg {
+            position: relative;
+            z-index: 2;
+
+            width: 24px;
+            height: 24px;
+
+            stroke-width: 1.8;
+        }
+
+        .academy-icon.cyan {
+            color: var(--academy-cyan);
+            border-color: rgba(53,214,255,0.22);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(53,214,255,0.10),
+                    rgba(53,214,255,0.02)
+                );
+        }
+
+        .academy-icon.success {
+            color: var(--academy-success);
+            border-color: rgba(57,217,138,0.20);
+            background:
+                rgba(57,217,138,0.04);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .academy-hero {
+            position: relative;
+            min-height: 650px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            padding:
+                105px 0
+                95px;
+
+            background:
+                radial-gradient(
+                    circle at 20% 25%,
+                    rgba(214,168,79,0.09),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 35%,
+                    rgba(53,214,255,0.045),
+                    transparent 32%
+                );
+        }
+
+        .academy-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+            height: 700px;
+
+            right: -260px;
+            top: -260px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(53,214,255,0.028);
+
+            filter: blur(120px);
+
+            pointer-events: none;
+        }
+
+        .academy-hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            left: -260px;
+            bottom: -250px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(214,168,79,0.035);
+
+            filter: blur(110px);
+
+            pointer-events: none;
+        }
+
+        .academy-hero-grid {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+
+            grid-template-columns:
+                0.95fr
+                1.05fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .academy-hero-content {
+            max-width: 650px;
+        }
+
+        .academy-hero-content .section-label {
+            margin-bottom: 22px;
+        }
+
+        .academy-hero-content h1 {
+            font-size:
+                clamp(
+                    3.1rem,
+                    6vw,
+                    5.7rem
+                );
+
+            line-height: 0.97;
+            letter-spacing: -0.06em;
+            font-weight: 900;
+        }
+
+        .academy-hero-content > p {
+            max-width: 650px;
+
+            margin-top: 25px;
+
+            color: var(--academy-text-soft);
+
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+
+        .academy-hero-actions {
+            margin-top: 32px;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .academy-hero-stats {
+            margin-top: 42px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 10px;
+        }
+
+        .academy-stat {
+            padding: 17px 12px;
+
+            border:
+                1px solid
+                var(--academy-border);
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,0.018);
+        }
+
+        .academy-stat strong {
+            display: block;
+
+            color: var(--academy-text);
+
+            font-size: 1rem;
+            font-weight: 850;
+        }
+
+        .academy-stat span {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--academy-text-muted);
+
+            font-size: 0.56rem;
+            font-weight: 800;
+
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           HERO IMAGE
+        ===================================================== */
+
+        .academy-hero-visual {
+            position: relative;
+
+            min-height: 530px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .academy-hero-image {
+            position: relative;
+
+            width: min(100%, 500px);
+            height: 555px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--academy-border-gold);
+
+            border-radius: 30px;
+
+            background:
+                #0a0e15;
+
+            box-shadow:
+                var(--academy-shadow),
+                0 0 50px
+                rgba(214,168,79,0.08);
+        }
+
+        .academy-hero-image::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(5,7,11,0.68),
+                    transparent 42%
+                );
+
+            pointer-events: none;
+        }
+
+        .academy-hero-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .academy-image-top {
+            position: absolute;
+
+            top: 20px;
+            left: 20px;
+            right: 20px;
+
+            z-index: 5;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            color: var(--academy-text);
+
+            font-size: 0.63rem;
+            font-weight: 850;
+
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .academy-image-top span:first-child {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .academy-image-tag {
+            padding: 6px 9px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            border-radius: 999px;
+
+            background:
+                rgba(5,7,11,0.55);
+
+            backdrop-filter: blur(10px);
+        }
+
+        .academy-floating-card {
+            position: absolute;
+
+            z-index: 6;
+
+            left: -35px;
+            bottom: 38px;
+
+            width: 205px;
+
+            padding: 17px;
+
+            border:
+                1px solid
+                var(--academy-border);
+
+            border-radius: 15px;
+
+            background:
+                rgba(8,12,18,0.91);
+
+            box-shadow:
+                var(--academy-shadow);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .academy-floating-card span {
+            display: block;
+
+            color: var(--academy-text-muted);
+
+            font-size: 0.6rem;
+        }
+
+        .academy-floating-card strong {
+            display: block;
+
+            margin-top: 5px;
+
+            color: var(--academy-gold-light);
+
+            font-size: 1.05rem;
+        }
+
+        .academy-floating-card small {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--academy-text-soft);
+
+            font-size: 0.61rem;
+        }
+
+
+        /* =====================================================
+           MENTORSHIP
+        ===================================================== */
+
+        .academy-mentorship-card {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 40px;
+
+            border:
+                1px solid
+                var(--academy-border-gold);
+
+            border-radius:
+                var(--academy-radius-lg);
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(214,168,79,0.08),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.01)
+                );
+
+            box-shadow:
+                var(--academy-shadow);
+        }
+
+        .academy-mentorship-grid {
+            display: grid;
+
+            grid-template-columns:
+                0.85fr
+                1.15fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .academy-mentor-image-wrap {
+            min-height: 420px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .academy-mentor-image {
+            position: relative;
+
+            width: min(100%, 390px);
+            height: 420px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--academy-border-gold);
+
+            border-radius: 24px;
+
+            background:
+                #0a0e15;
+
+            box-shadow:
+                var(--academy-shadow);
+        }
+
+        .academy-mentor-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .academy-mentor-badge {
+            position: absolute;
+
+            left: 18px;
+            bottom: 18px;
+
+            z-index: 3;
+
+            padding: 10px 13px;
+
+            display: inline-flex;
+
+            align-items: center;
+            gap: 8px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            border-radius: 9px;
+
+            color: var(--academy-text);
+
+            background:
+                rgba(5,7,11,0.84);
+
+            backdrop-filter: blur(12px);
+
+            font-size: 0.63rem;
+            font-weight: 800;
+        }
+
+        .academy-mentorship-content h2 {
+            margin-top: 10px;
+
+            font-size:
+                clamp(
+                    2rem,
+                    4vw,
+                    3.5rem
+                );
+
+            line-height: 1;
+
+            letter-spacing: -0.05em;
+        }
+
+        .academy-mentorship-content > p {
+            margin-top: 18px;
+
+            color: var(--academy-text-soft);
+
+            font-size: 0.86rem;
+            line-height: 1.8;
+        }
+
+        .academy-mentorship-list {
+            margin-top: 24px;
+
+            display: grid;
+
+            gap: 11px;
+        }
+
+        .academy-mentorship-list li {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            color: var(--academy-text-soft);
+
+            font-size: 0.73rem;
+        }
+
+        .academy-mentorship-list svg {
+            width: 16px;
+
+            flex-shrink: 0;
+
+            color: var(--academy-success);
+
+            margin-top: 2px;
+        }
+
+        .academy-mentorship-content .btn {
+            margin-top: 27px;
+        }
+
+
+        /* =====================================================
+           AUDIENCE
+        ===================================================== */
+
+        .academy-audience-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .academy-audience-card {
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 360px;
+
+            border:
+                1px solid
+                var(--academy-border);
+
+            border-radius:
+                var(--academy-radius);
+
+            background:
+                rgba(255,255,255,0.018);
+
+            transition:
+                transform var(--academy-transition),
+                border-color var(--academy-transition),
+                box-shadow var(--academy-transition);
+        }
+
+        .academy-audience-card:hover {
+            transform: translateY(-6px);
+
+            border-color:
+                var(--academy-border-gold);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .academy-audience-image {
+            height: 180px;
+
+            overflow: hidden;
+
+            border-bottom:
+                1px solid
+                var(--academy-border);
+
+            background:
+                #0a0e15;
+        }
+
+        .academy-audience-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.45s ease;
+        }
+
+        .academy-audience-card:hover
+        .academy-audience-image img {
+            transform: scale(1.045);
+        }
+
+        .academy-audience-content {
+            padding: 25px;
+        }
+
+        .academy-audience-content h3 {
+            color:
+                var(--academy-text);
+
+            font-size:
+                1rem;
+        }
+
+        .academy-audience-content p {
+            margin-top: 10px;
+
+            color:
+                var(--academy-text-soft);
+
+            font-size:
+                0.75rem;
+
+            line-height:
+                1.75;
+        }
+
+        .academy-card-icon {
+            position: absolute;
+
+            top: 154px;
+            left: 22px;
+
+            width: 50px;
+            height: 50px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid
+                var(--academy-border-gold);
+
+            border-radius: 13px;
+
+            color:
+                var(--academy-gold-light);
+
+            background:
+                rgba(8,12,18,0.95);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.3);
+        }
+
+        .academy-card-icon svg {
+            width: 21px;
+        }
+
+
+        /* =====================================================
+           COURSES
+        ===================================================== */
+
+        .academy-course-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .academy-course-card {
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+
+            min-height: 460px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--academy-border);
+
+            border-radius:
+                var(--academy-radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.01)
+                );
+
+            transition:
+                transform var(--academy-transition),
+                border-color var(--academy-transition),
+                box-shadow var(--academy-transition);
+        }
+
+        .academy-course-card:hover {
+            transform:
+                translateY(-6px);
+
+            border-color:
+                var(--academy-border-gold);
+
+            box-shadow:
+                var(--academy-shadow);
+        }
+
+        .academy-course-card.featured {
+            border-color:
+                rgba(214,168,79,0.30);
+        }
+
+        .academy-course-image {
+            position: relative;
+
+            height: 190px;
+
+            overflow: hidden;
+
+            background:
+                #080c12;
+        }
+
+        .academy-course-image::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(5,7,11,0.62),
+                    transparent 55%
+                );
+        }
+
+        .academy-course-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.45s ease;
+        }
+
+        .academy-course-card:hover
+        .academy-course-image img {
+            transform: scale(1.05);
+        }
+
+        .academy-course-label {
+            position: absolute;
+
+            z-index: 4;
+
+            left: 17px;
+            top: 17px;
+
+            padding: 5px 9px;
+
+            border:
+                1px solid
+                var(--academy-border-gold);
+
+            border-radius: 999px;
+
+            color:
+                var(--academy-gold-light);
+
+            background:
+                rgba(5,7,11,0.70);
+
+            backdrop-filter:
+                blur(10px);
+
+            font-size:
+                0.55rem;
+
+            font-weight:
+                850;
+
+            letter-spacing:                0.08em;
+
+            text-transform:
+                uppercase;
+        }
+
+        .academy-course-content {
+            flex: 1;
+
+            padding: 24px;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .academy-course-content h3 {
+            color:
+                var(--academy-text);
+
+            font-size:
+                1.05rem;
+        }
+
+        .academy-course-content p {
+            margin-top:
+                10px;
+
+            color:
+                var(--academy-text-soft);
+
+            font-size:
+                0.72rem;
+
+            line-height:
+                1.75;
+        }
+
+        .academy-course-features {
+            margin-top:
+                18px;
+
+            display:
+                grid;
+
+            gap:
+                8px;
+        }
+
+        .academy-course-features li {
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            gap:
+                8px;
+
+            color:
+                var(--academy-text-soft);
+
+            font-size:
+                0.64rem;
+        }
+
+        .academy-course-features svg {
+            width:
+                14px;
+
+            flex-shrink:
+                0;
+
+            color:
+                var(--academy-success);
+
+            margin-top:
+                2px;
+        }
+
+        .academy-course-content .btn {
+            width:
+                100%;
+
+            margin-top:
+                auto;
+
+            padding-top:
+                18px;
+        }
+
+
+        /* =====================================================
+           THREE PILLARS
+        ===================================================== */
+
+        .academy-pillars-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                20px;
+        }
+
+        .academy-pillar-card {
+            padding:
+                30px;
+
+            border:
+                1px solid
+                var(--academy-border);
+
+            border-radius:
+                var(--academy-radius);
+
+            background:
+                rgba(255,255,255,0.018);
+
+            transition:
+                transform var(--academy-transition),
+                border-color var(--academy-transition),
+                background var(--academy-transition);
+        }
+
+        .academy-pillar-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                var(--academy-border-gold);
+
+            background:
+                rgba(214,168,79,0.025);
+        }
+
+        .academy-pillar-card h3 {
+            margin-top:
+                20px;
+
+            color:
+                var(--academy-text);
+
+            font-size:
+                1rem;
+        }
+
+        .academy-pillar-card p {
+            margin-top:
+                10px;
+
+            color:
+                var(--academy-text-soft);
+
+            font-size:
+                0.75rem;
+
+            line-height:
+                1.75;
+        }
+
+
+        /* =====================================================
+           LEARNING PROCESS
+        ===================================================== */
+
+        .academy-learning-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+        }
+
+        .academy-learning-card {
+            position:
+                relative;
+
+            padding:
+                27px;
+
+            border:
+                1px solid
+                var(--academy-border);
+
+            border-radius:
+                15px;
+
+            background:
+                rgba(255,255,255,0.018);
+        }
+
+        .academy-learning-number {
+            display:
+                inline-block;
+
+            color:
+                rgba(214,168,79,0.40);
+
+            font-size:
+                0.7rem;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                0.08em;
+        }
+
+        .academy-learning-card h3 {
+            margin-top:
+                15px;
+
+            color:
+                var(--academy-text);
+
+            font-size:
+                0.92rem;
+        }
+
+        .academy-learning-card p {
+            margin-top:
+                9px;
+
+            color:
+                var(--academy-text-soft);
+
+            font-size:
+                0.69rem;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* =====================================================
+           SUPPORT
+        ===================================================== */
+
+        .academy-support-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                20px;
+        }
+
+        .academy-support-card {
+            padding:
+                30px;
+
+            border:
+                1px solid
+                var(--academy-border);
+
+            border-radius:
+                var(--academy-radius);
+
+            background:
+                rgba(255,255,255,0.018);
+        }
+
+        .academy-support-card h3 {
+            margin-top:
+                20px;
+
+            color:
+                var(--academy-text);
+
+            font-size:
+                1rem;
+        }
+
+        .academy-support-card p {
+            margin-top:
+                10px;
+
+            color:
+                var(--academy-text-soft);
+
+            font-size:
+                0.75rem;
+
+            line-height:
+                1.75;
+        }
+
+        .academy-support-card .btn {
+            margin-top:
+                20px;
+        }
+
+
+        /* =====================================================
+           FAQ
+        ===================================================== */
+
+        .academy-faq {
+            max-width:
+                860px;
+
+            margin:
+                0 auto;
+
+            display:
+                grid;
+
+            gap:
+                10px;
+        }
+
+        .academy-faq-item {
+            overflow:
+                hidden;
+
+            border:
+                1px solid
+                var(--academy-border);
+
+            border-radius:
+                13px;
+
+            background:
+                rgba(255,255,255,0.018);
+        }
+
+        .academy-faq-question {
+            width:
+                100%;
+
+            padding:
+                18px 20px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+            color:
+                var(--academy-text);
+
+            background:
+                transparent;
+
+            text-align:
+                left;
+
+            font-size:
+                0.78rem;
+
+            font-weight:
+                750;
+        }
+
+        .academy-faq-question svg {
+            width:
+                17px;
+
+            flex-shrink:
+                0;
+
+            color:
+                var(--academy-gold-light);
+        }
+
+        .academy-faq-answer {
+            display:
+                none;
+
+            padding:
+                0 20px 20px;
+
+            color:
+                var(--academy-text-soft);
+
+            font-size:
+                0.72rem;
+
+            line-height:
+                1.75;
+        }
+
+        .academy-faq-item.open
+        .academy-faq-answer {
+            display:
+                block;
+        }
+
+
+        /* =====================================================
+           FINAL CTA
+        ===================================================== */
+
+        .academy-final-cta {
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            padding:
+                80px 35px;
+
+            text-align:
+                center;
+
+            border:
+                1px solid
+                var(--academy-border-gold);
+
+            border-radius:
+                var(--academy-radius-lg);
+
+            background:
+                radial-gradient(
+                    circle at 50% 0,
+                    rgba(214,168,79,0.12),
+                    transparent 45%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.04),
+                    rgba(255,255,255,0.01)
+                );
+
+            box-shadow:
+                0 0 60px
+                rgba(214,168,79,0.07);
+        }
+
+        .academy-final-cta h2 {
+            margin-top:
+                10px;
+
+            font-size:
+                clamp(
+                    2.25rem,
+                    5vw,
+                    4rem
+                );
+
+            line-height:
+                1;
+
+            letter-spacing:
+                -0.05em;
+        }
+
+        .academy-final-cta p {
+            max-width:
+                680px;
+
+            margin:
+                20px auto 0;
+
+            color:
+                var(--academy-text-soft);
+
+            font-size:
+                0.85rem;
+
+            line-height:
+                1.8;
+        }
+
+        .academy-final-actions {
+            margin-top:
+                30px;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                12px;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .academy-hero-grid {
+                gap: 45px;
+            }
+
+            .academy-hero-stats {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .academy-course-grid,
+            .academy-audience-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .academy-pillars-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+            .academy-learning-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 850px) {
+
+            .academy-hero {
+                min-height:
+                    auto;
+
+                padding:
+                    80px 0;
+            }
+
+            .academy-hero-grid,
+            .academy-mentorship-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .academy-hero-content {
+                max-width:
+                    720px;
+
+                margin-inline:
+                    auto;
+
+                text-align:
+                    center;
+            }
+
+            .academy-hero-content > p {
+                margin-inline:
+                    auto;
+            }
+
+            .academy-hero-actions {
+                justify-content:
+                    center;
+            }
+
+            .academy-hero-visual {
+                min-height:
+                    500px;
+            }
+
+            .academy-floating-card {
+                left:
+                    18px;
+            }
+
+            .academy-mentor-image-wrap {
+                min-height:
+                    auto;
+            }
+
+            .academy-mentorship-content {
+                text-align:
+                    center;
+            }
+
+            .academy-mentorship-content .section-label {
+                justify-content:
+                    center;
+            }
+
+            .academy-mentorship-content h2 {
+                text-align:
+                    center;
+            }
+
+            .academy-mentorship-list {
+                max-width:
+                    650px;
+
+                margin-inline:
+                    auto;
+            }
+
+            .academy-mentorship-content .btn {
+                margin-inline:
+                    auto;
+            }
+
+            .academy-support-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .academy-section {
+                padding:
+                    75px 0;
+            }
+
+            .academy-section-header {
+                margin-bottom:
+                    40px;
+            }
+
+            .academy-section-header h2 {
+                font-size:
+                    clamp(
+                        2rem,
+                        10vw,
+                        3rem
+                    );
+            }
+
+            .academy-hero-content h1 {
+                font-size:
+                    clamp(
+                        2.7rem,
+                        13vw,
+                        4.2rem
+                    );
+            }
+
+            .academy-hero-actions {
+                flex-direction:
+                    column;
+            }
+
+            .academy-hero-actions .btn {
+                width:
+                    100%;
+            }
+
+            .academy-hero-stats {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .academy-hero-image {
+                height:
+                    440px;
+
+                border-radius:
+                    22px;
+            }
+
+            .academy-floating-card {
+    position: fixed !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: 22px !important;
+    transform: translateX(-50%) !important;
+}
+
+            .academy-mentorship-card {
+                padding:
+                    24px;
+            }
+
+            .academy-mentor-image {
+                height:
+                    350px;
+            }
+
+            .academy-course-grid,
+            .academy-audience-grid,
+            .academy-pillars-grid,
+            .academy-learning-grid,
+            .academy-support-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .academy-course-image {
+                height:
+                    180px;
+            }
+
+            .academy-final-cta {
+                padding:
+                    55px 20px;
+            }
+
+            .academy-final-actions {
+                flex-direction:
+                    column;
+            }
+
+            .academy-final-actions .btn {
+                width:
+                    100%;
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .academy-hero-stats {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .academy-stat {
+                text-align:
+                    center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+====================================================== -->
+
+<header class="site-header">
+
+    <div class="nav-container">
+
+        <a
+            href="index.html"
+            class="nav-brand"
+            aria-label="VANTYX FX Home"
+        >
+
+            <img
+                src="images/logo.png"
+                alt="VANTYX Traders Kenya FX"
+                class="nav-logo-image"
+            >
+
+        </a>
+
+
+        <nav
+            class="desktop-nav"
+            aria-label="Main navigation"
+        >
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                Home
+            </a>
+
+            <a
+                href="start-here.html"
+                class="nav-link"
+            >
+                Start Here
+            </a>
+
+            <a
+                href="software.html"
+                class="nav-link"
+            >
+                Software
+            </a>
+
+            <a
+                href="academy.html"
+                class="nav-link active"
+            >
+                Academy
+            </a>
+
+            <a
+                href="live-analysis.html"
+                class="nav-link"
+            >
+                Live Analysis
+            </a>
+
+            <a
+                href="tools.html"
+                class="nav-link"
+            >
+                Tools
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a
+                href="https://www.tradingview.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-market-link tradingview"
+            >
+
+                <i data-lucide="candlestick-chart"></i>
+
+                TradingView
+
+            </a>
+
+
+            <a
+                href="https://www.metatrader5.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-market-link mt5"
+            >
+
+                <i data-lucide="bar-chart-3"></i>
+
+                MT5
+
+            </a>
+
+
+            <a
+                href="login.html"
+                class="nav-login"
+            >
+                Login
+            </a>
+
+
+            <a
+                href="#courses"
+                class="nav-cta"
+            >
+
+                Start Learning
+
+                <i data-lucide="arrow-up-right"></i>
+
+            </a>
+
+        </div>
+
+
+        <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+        >
+
+            <i data-lucide="menu"></i>
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="start-here.html">
+            Start Here
+        </a>
+
+        <a href="software.html">
+            Software
+        </a>
+
+        <a href="academy.html">
+            Academy
+        </a>
+
+        <a href="live-analysis.html">
+            Live Analysis
+        </a>
+
+        <a href="tools.html">
+            Tools
+        </a>
+
+        <a href="login.html">
+            Login
+        </a>
+
+
+        <div class="mobile-market-buttons">
+
+            <a
+                href="https://www.tradingview.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                TradingView
+            </a>
+
+            <a
+                href="https://www.metatrader5.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                MT5
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MARKET TICKER
+====================================================== -->
+
+<div class="market-ticker">
+
+    <div class="ticker-track">
+
+        <span class="ticker-item">
+
+            <span class="live-dot"></span>
+
+            LIVE MARKET
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            XAUUSD
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                MARKET
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            EURUSD
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                MARKET
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            GBPUSD
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                MARKET
+            </span>
+        </span>
+
+
+        <span class="ticker-item">
+
+            BTCUSD
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                MARKET
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            DERIV
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                CONNECTED
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            <span class="live-dot"></span>
+
+            LIVE MARKET
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            XAUUSD
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                MARKET
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            EURUSD
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                MARKET
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            GBPUSD
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                MARKET
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            BTCUSD
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                MARKET
+            </span>
+
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN
+====================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     ACADEMY HERO
+====================================================== -->
+
+<section class="academy-hero">
+
+    <div class="container academy-hero-grid">
+
+
+        <div class="academy-hero-content">
+
+            <span class="section-label">
+
+                VANTYX Trading Academy
+
+            </span>
+
+
+            <h1>
+
+                Learn Trading.
+
+                <span class="academy-gradient">
+                    Build Skill.
+                </span>
+
+                <br>
+
+                Trade With
+                <span class="academy-gradient">
+                    Discipline.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                A structured learning environment for traders
+                who want to understand markets, develop a
+                repeatable strategy, manage risk and execute
+                with greater discipline.
+
+            </p>
+
+
+            <div class="academy-hero-actions">
+
+                <a
+                    href="#courses"
+                    class="btn btn-primary"
+                >
+
+                    Explore Courses
+
+                    <i data-lucide="arrow-down"></i>
+
+                </a>
+
+
+                <a
+                    href="#mentorship"
+                    class="btn btn-secondary"
+                >
+
+                    View Mentorship
+
+                    <i data-lucide="user-round"></i>
+
+                </a>
+
+            </div>
+
+
+            <div class="academy-hero-stats">
+
+                <div class="academy-stat">
+
+                    <strong>
+                        Beginner → Advanced
+                    </strong>
+
+                    <span>
+                        Structured Path
+                    </span>
+
+                </div>
+
+
+                <div class="academy-stat">
+
+                    <strong>
+                        Practical
+                    </strong>
+
+                    <span>
+                        Market Education
+                    </span>
+
+                </div>
+
+
+                <div class="academy-stat">
+
+                    <strong>
+                        Risk First
+                    </strong>
+
+                    <span>
+                        Capital Protection
+                    </span>
+
+                </div>
+
+
+                <div class="academy-stat">
+
+                    <strong>
+                        Ongoing
+                    </strong>
+
+                    <span>
+                        Support
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="academy-hero-visual">
+
+            <div class="academy-hero-image">
+
+                <div class="academy-image-top">
+
+                    <span>
+
+                        <span class="live-dot"></span>
+
+                        VANTYX ACADEMY
+
+                    </span>
+
+
+                    <span class="academy-image-tag">
+
+                        EDUCATION
+
+                    </span>
+
+                </div>
+
+
+                <!--
+                    Replace this image with the actual
+                    Academy hero image you upload.
+
+                    Example:
+                    images/academy-hero.jpg
+                -->
+
+                <img
+                    src="images/academy-hero.jpg"
+                    alt="VANTYX FX Trading Academy"
+                >
+
+
+                <div class="academy-floating-card">
+
+                    <span>
+                        Learning Objective
+                    </span>
+
+                    <strong>
+                        BUILD A PROCESS
+                    </strong>
+
+                    <small>
+                        Knowledge → Practice → Execution → Review
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MENTORSHIP
+====================================================== -->
+
+<section
+    class="academy-section"
+    id="mentorship"
+>
+
+    <div class="container">
+
+        <div class="academy-mentorship-card">
+
+            <div class="academy-mentorship-grid">
+
+
+                <div class="academy-mentor-image-wrap">
+
+                    <div class="academy-mentor-image">
+
+                        <!--
+                            Replace with your actual
+                            mentor/teacher image.
+
+                            Example:
+                            images/mentor.jpg
+                        -->
+
+                        <img
+                            src="images/mentor.jpg"
+                            alt="VANTYX FX mentor"
+                        >
+
+
+                        <div class="academy-mentor-badge">
+
+                            <span class="live-dot"></span>
+
+                            Private Mentorship
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="academy-mentorship-content">
+
+                    <span class="section-label">
+
+                        Premium Mentorship
+
+                    </span>
+
+
+                    <h2>
+
+                        Learn With
+
+                        <span class="academy-gradient">
+                            Direction.
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Education gives you information.
+                        Mentorship helps you identify how to
+                        apply that information to your own
+                        trading process.
+
+                    </p>
+
+
+                    <ul class="academy-mentorship-list">
+
+                        <li>
+
+                            <i data-lucide="check-circle"></i>
+
+                            Review your current trading approach.
+
+                        </li>
+
+
+                        <li>
+
+                            <i data-lucide="check-circle"></i>
+
+                            Identify weaknesses in analysis,
+                            execution and risk.
+
+                        </li>
+
+
+                        <li>
+
+                            <i data-lucide="check-circle"></i>
+
+                            Build a structured trading plan.
+
+                        </li>
+
+
+                        <li>
+
+                            <i data-lucide="check-circle"></i>
+
+                            Receive practical feedback on setups
+                            and execution.
+
+                        </li>
+
+
+                        <li>
+
+                            <i data-lucide="check-circle"></i>
+
+                            Develop a process you can repeat.
+
+                        </li>
+
+                    </ul>
+
+
+                    <a
+                        href="https://wa.me/254719229005"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                    >
+
+                        Book 1-on-1 Mentorship
+
+                        <i data-lucide="arrow-up-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHO THE ACADEMY IS FOR
+====================================================== -->
+
+<section class="academy-section">
+
+    <div class="container">
+
+        <div class="academy-section-header">
+
+            <span class="section-label">
+                Built Around The Trader
+            </span>
+
+
+            <h2>
+
+                Who Is The Academy
+
+                <span class="academy-gradient">
+                    For?
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                The VANTYX Academy is designed around the
+                different stages traders experience while
+                developing their skill.
+
+            </p>
+
+        </div>
+
+
+        <div class="academy-audience-grid">
+
+
+            <!-- BEGINNERS -->
+
+            <article class="academy-audience-card">
+
+                <div class="academy-audience-image">
+
+                    <!-- images/academy-beginners.jpg -->
+
+                    <img
+                        src="images/academy-beginners.jpg"
+                        alt="Beginner trader learning"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="academy-card-icon">
+
+                    <i data-lucide="graduation-cap"></i>
+
+                </div>
+
+
+                <div class="academy-audience-content">
+
+                    <h3>
+                        Beginners
+                    </h3>
+
+                    <p>
+
+                        Start from the foundation. Understand
+                        terminology, charts, platforms,
+                        orders, risk and the environment
+                        before taking unnecessary live risk.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- STRUGGLING -->
+
+            <article class="academy-audience-card">
+
+                <div class="academy-audience-image">
+
+                    <!-- images/academy-struggling.jpg -->
+
+                    <img
+                        src="images/academy-struggling.jpg"
+                        alt="Trader studying market analysis"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="academy-card-icon">
+
+                    <i data-lucide="target"></i>
+
+                </div>
+
+
+                <div class="academy-audience-content">
+
+                    <h3>
+                        Struggling Traders
+                    </h3>
+
+                    <p>
+
+                        You already know some concepts but
+                        your results are inconsistent. Build
+                        structure, diagnose mistakes and
+                        improve execution.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROFESSIONALS -->
+
+            <article class="academy-audience-card">
+
+                <div class="academy-audience-image">
+
+                    <!-- images/academy-professionals.jpg -->
+
+                    <img
+                        src="images/academy-professionals.jpg"
+                        alt="Professional trader working"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="academy-card-icon">
+
+                    <i data-lucide="briefcase"></i>
+
+                </div>
+
+
+                <div class="academy-audience-content">
+
+                    <h3>
+                        Working Professionals
+                    </h3>
+
+                    <p>
+
+                        Learn to structure your trading around
+                        your available time, sessions and risk
+                        rather than being forced to watch the
+                        market constantly.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COURSES
+====================================================== -->
+
+<section
+    class="academy-section"
+    id="courses"
+>
+
+    <div class="container">
+
+        <div class="academy-section-header">
+
+            <span class="section-label">
+                Course Library
+            </span>
+
+
+            <h2>
+
+                Learn The Skills That
+
+                <span class="academy-gradient">
+                    Actually Matter
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                Move from foundational knowledge to practical
+                execution through a structured learning path.
+
+            </p>
+
+        </div>
+
+
+        <div class="academy-course-grid">
+
+
+            <!-- FOUNDATIONS -->
+
+            <article class="academy-course-card featured">
+
+                <div class="academy-course-image">
+
+                    <span class="academy-course-label">
+                        Beginner
+                    </span>
+
+                    <img
+                        src="images/course-foundations.jpg"
+                        alt="Trading Foundations course"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="academy-course-content">
+
+                    <h3>
+                        Trading Foundations
+                    </h3>
+
+
+                    <p>
+
+                        Build a proper understanding of the
+                        trading environment before progressing
+                        into advanced concepts.
+
+                    </p>
+
+
+                    <ul class="academy-course-features">
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Market terminology
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Chart reading
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Platform navigation
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Risk fundamentals
+                        </li>
+
+                    </ul>
+
+
+                    <a
+                        href="start-here.html"
+                        class="btn btn-secondary"
+                    >
+
+                        Start Learning
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- MANUAL TRADING -->
+
+            <article class="academy-course-card">
+
+                <div class="academy-course-image">
+
+                    <span class="academy-course-label">
+                        Manual
+                    </span>
+
+                    <img
+                        src="images/course-manual.jpg"
+                        alt="Manual trading course"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="academy-course-content">
+
+                    <h3>
+                        Manual Trading
+                    </h3>
+
+
+                    <p>
+
+                        Learn to analyze price, identify
+                        setups, plan entries and manage
+                        trades manually.
+
+                    </p>
+
+
+                    <ul class="academy-course-features">
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Market structure
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Setup identification
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Entry planning
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Trade management
+                        </li>
+
+                    </ul>
+
+
+                    <a
+                        href="pages/manual-trading.html"
+                        class="btn btn-secondary"
+                    >
+
+                        Explore Manual Trading
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- FOREX -->
+
+            <article class="academy-course-card">
+
+                <div class="academy-course-image">
+
+                    <span class="academy-course-label">
+                        Forex
+                    </span>
+
+                    <img
+                        src="images/course-forex.jpg"
+                        alt="Forex trading course"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="academy-course-content">
+
+                    <h3>
+                        Forex Trading
+                    </h3>
+
+
+                    <p>
+
+                        Develop a structured framework for
+                        currency markets, sessions, volatility
+                        and execution.
+
+                    </p>
+
+
+                    <ul class="academy-course-features">
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Currency pairs
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Trading sessions
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Technical analysis
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Risk planning
+                        </li>
+
+                    </ul>
+
+
+                    <a
+                        href="pages/manual-trading.html"
+                        class="btn btn-secondary"
+                    >
+
+                        Explore Forex
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- OPTIONS -->
+
+            <article class="academy-course-card">
+
+                <div class="academy-course-image">
+
+                    <span class="academy-course-label">
+                        Deriv
+                    </span>
+
+                    <img
+                        src="images/course-options.jpg"
+                        alt="Deriv options course"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="academy-course-content">
+
+                    <h3>
+                        Options Trading
+                    </h3>
+
+
+                    <p>
+
+                        Understand contract structure,
+                        probability, platform workflow and
+                        responsible risk management.
+
+                    </p>
+
+
+                    <ul class="academy-course-features">
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Contract structure
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Probability concepts
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Risk management
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Platform workflow
+                        </li>
+
+                    </ul>
+
+
+                    <a
+                        href="live-analysis.html"
+                        class="btn btn-secondary"
+                    >
+
+                        Explore Options
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- RISK -->
+
+            <article class="academy-course-card featured">
+
+                <div class="academy-course-image">
+
+                    <span class="academy-course-label">
+                        Essential
+                    </span>
+
+                    <img
+                        src="images/course-risk.jpg"
+                        alt="Risk management course"
+                        loading="lazy"
+                    >
+                </div>
+
+
+                <div class="academy-course-content">
+
+                    <h3>
+                        Risk Management
+                    </h3>
+
+
+                    <p>
+
+                        Build rules for capital protection,
+                        position sizing, daily loss limits
+                        and disciplined execution.
+
+                    </p>
+
+
+                    <ul class="academy-course-features">
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Position sizing
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Risk per trade
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Daily limits
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Capital protection
+                        </li>
+
+                    </ul>
+
+
+                    <a
+                        href="pages/risk-management.html"
+                        class="btn btn-primary"
+                    >
+
+                        Learn Risk Management
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- AUTOMATION -->
+
+            <article class="academy-course-card">
+
+                <div class="academy-course-image">
+
+                    <span class="academy-course-label">
+                        Automation
+                    </span>
+
+                    <img
+                        src="images/course-automation.jpg"
+                        alt="Automated trading course"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="academy-course-content">
+
+                    <h3>
+                        Automated Trading
+                    </h3>
+
+
+                    <p>
+
+                        Understand robots, configuration,
+                        monitoring, risk controls and the
+                        importance of oversight.
+
+                    </p>
+
+
+                    <ul class="academy-course-features">
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Automation fundamentals
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Robot configuration
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Risk controls
+                        </li>
+
+                        <li>
+                            <i data-lucide="check"></i>
+                            Monitoring
+                        </li>
+
+                    </ul>
+
+
+                    <a
+                        href="pages/automated-trading.html"
+                        class="btn btn-secondary"
+                    >
+
+                        Explore Automation
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     THREE PILLARS
+====================================================== -->
+
+<section class="academy-section">
+
+    <div class="container">
+
+        <div class="academy-section-header">
+
+            <span class="section-label">
+                The Foundation
+            </span>
+
+
+            <h2>
+
+                Build Your Trading Around
+
+                <span class="academy-gradient">
+                    Three Pillars
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                The Academy focuses on the areas that connect
+                knowledge, risk and execution into one process.
+
+            </p>
+
+        </div>
+
+
+        <div class="academy-pillars-grid">
+
+
+            <article class="academy-pillar-card">
+
+                <div class="academy-icon">
+
+                    <i data-lucide="line-chart"></i>
+
+                </div>
+
+
+                <h3>
+                    Market Analysis
+                </h3>
+
+
+                <p>
+
+                    Develop a framework for reading market
+                    structure, identifying relevant price
+                    areas and understanding directional context.
+
+                </p>
+
+            </article>
+
+
+            <article class="academy-pillar-card">
+
+                <div class="academy-icon success">
+
+                    <i data-lucide="shield-check"></i>
+
+                </div>
+
+
+                <h3>
+                    Risk Management
+                </h3>
+
+
+                <p>
+
+                    Define risk before entering. Position
+                    sizing, stop placement and capital
+                    protection are central to the process.
+
+                </p>
+
+            </article>
+
+
+            <article class="academy-pillar-card">
+
+                <div class="academy-icon cyan">
+
+                    <i data-lucide="repeat-2"></i>
+
+                </div>
+
+
+                <h3>
+                    Consistent Execution
+                </h3>
+
+
+                <p>
+
+                    Follow rules, document trades, review
+                    outcomes and improve through evidence
+                    rather than constantly changing systems.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LEARNING PROCESS
+====================================================== -->
+
+<section class="academy-section">
+
+    <div class="container">
+
+        <div class="academy-section-header">
+
+            <span class="section-label">
+                Learning Process
+            </span>
+
+
+            <h2>
+
+                From Knowledge To
+
+                <span class="academy-gradient">
+                    Execution
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                The objective is not to collect information.
+                It is to turn knowledge into a repeatable
+                trading process.
+
+            </p>
+
+        </div>
+
+
+        <div class="academy-learning-grid">
+
+
+            <article class="academy-learning-card">
+
+                <span class="academy-learning-number">
+                    01
+                </span>
+
+
+                <div class="academy-icon">
+
+                    <i data-lucide="book-open"></i>
+
+                </div>
+
+
+                <h3>
+                    Learn
+                </h3>
+
+
+                <p>
+
+                    Understand the market, terminology,
+                    platforms and trading concepts.
+
+                </p>
+
+            </article>
+
+
+            <article class="academy-learning-card">
+
+                <span class="academy-learning-number">
+                    02
+                </span>
+
+
+                <div class="academy-icon">
+
+                    <i data-lucide="flask-conical"></i>
+
+                </div>
+
+
+                <h3>
+                    Practice
+                </h3>
+
+
+                <p>
+
+                    Use charts and demo environments to
+                    practice without unnecessary financial risk.
+
+                </p>
+
+            </article>
+
+
+            <article class="academy-learning-card">
+
+                <span class="academy-learning-number">
+                    03
+                </span>
+
+
+                <div class="academy-icon">
+
+                    <i data-lucide="crosshair"></i>
+
+                </div>
+
+
+                <h3>
+                    Execute
+                </h3>
+
+
+                <p>
+
+                    Apply one defined model with predefined
+                    risk and clear execution rules.
+
+                </p>
+
+            </article>
+
+
+            <article class="academy-learning-card">
+
+                <span class="academy-learning-number">
+                    04
+                </span>
+
+
+                <div class="academy-icon cyan">
+
+                    <i data-lucide="bar-chart-3"></i>
+
+                </div>
+
+
+                <h3>
+                    Review
+                </h3>
+
+
+                <p>
+
+                    Record results, identify mistakes and
+                    continuously refine your process.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUPPORT
+====================================================== -->
+
+<section class="academy-section">
+
+    <div class="container">
+
+        <div class="academy-section-header">
+
+            <span class="section-label">
+                Trader Support
+            </span>
+
+
+            <h2>
+
+                You Don't Have To Learn
+
+                <span class="academy-gradient">
+                    Alone
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                Combine structured education with a community,
+                practical support and personalized mentorship.
+
+            </p>
+
+        </div>
+
+
+        <div class="academy-support-grid">
+
+
+            <article class="academy-support-card">
+
+                <div class="academy-icon cyan">
+
+                    <i data-lucide="send"></i>
+
+                </div>
+
+
+                <h3>
+                    Telegram Community
+                </h3>
+
+
+                <p>
+
+                    Discuss trading, share ideas and stay
+                    connected with the VANTYX community.
+
+                </p>
+
+
+                <a
+                    href="https://t.me/Binary_Legacy_Hub"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary"
+                >
+
+                    Join Community
+
+                    <i data-lucide="external-link"></i>
+
+                </a>
+
+            </article>
+
+
+            <article class="academy-support-card">
+
+                <div class="academy-icon success">
+
+                    <i data-lucide="message-circle"></i>
+
+                </div>
+
+
+                <h3>
+                    WhatsApp Support
+                </h3>
+
+
+                <p>
+
+                    Contact the team for assistance with
+                    courses, software, tools or mentorship.
+
+                </p>
+
+
+                <a
+                    href="https://wa.me/254719229005"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+
+                    Contact Support
+
+                    <i data-lucide="external-link"></i>
+
+                </a>
+
+            </article>
+
+
+            <article class="academy-support-card">
+
+                <div class="academy-icon">
+
+                    <i data-lucide="user-round-check"></i>
+
+                </div>
+
+
+                <h3>
+                    1-on-1 Mentorship
+                </h3>
+
+
+                <p>
+
+                    Get personalized guidance around your
+                    specific trading process and weaknesses.
+
+                </p>
+
+
+                <a
+                    href="#mentorship"
+                    class="btn btn-secondary"
+                >
+
+                    Book Session
+
+                    <i data-lucide="arrow-right"></i>
+
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+====================================================== -->
+
+<section class="academy-section">
+
+    <div class="container">
+
+        <div class="academy-section-header">
+
+            <span class="section-label">
+                Frequently Asked Questions
+            </span>
+
+
+            <h2>
+
+                Academy
+
+                <span class="academy-gradient">
+                    Questions
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <div class="academy-faq">
+
+
+            <div class="academy-faq-item">
+
+                <button
+                    type="button"
+                    class="academy-faq-question"
+                >
+
+                    Do I need previous trading experience?
+
+                    <i data-lucide="plus"></i>
+
+                </button>
+
+
+                <div class="academy-faq-answer">
+
+                    No. The Academy includes beginner-oriented
+                    material and progressively introduces more
+                    advanced trading concepts.
+
+                </div>
+
+            </div>
+
+
+            <div class="academy-faq-item">
+
+                <button
+                    type="button"
+                    class="academy-faq-question"
+                >
+
+                    Can I learn Forex and Deriv?
+
+                    <i data-lucide="plus"></i>
+
+                </button>
+
+
+                <div class="academy-faq-answer">
+
+                    Yes. Different courses can focus on Forex,
+                    Deriv products, manual trading, risk
+                    management or automation.
+
+                </div>
+
+            </div>
+
+
+            <div class="academy-faq-item">
+
+                <button
+                    type="button"
+                    class="academy-faq-question"
+                >
+
+                    Is mentorship included?
+
+                    <i data-lucide="plus"></i>
+
+                </button>
+
+
+                <div class="academy-faq-answer">
+
+                    Mentorship can be available separately from
+                    course material. Dedicated 1-on-1 guidance
+                    is available through the mentorship section.
+
+                </div>
+
+            </div>
+
+
+            <div class="academy-faq-item">
+
+                <button
+                    type="button"
+                    class="academy-faq-question"
+                >
+
+                    Should beginners use a demo account?
+
+                    <i data-lucide="plus"></i>
+
+                </button>
+
+
+                <div class="academy-faq-answer">
+
+                    A demo environment can be used to develop
+                    platform familiarity, practice execution
+                    and test a process before risking live
+                    capital.
+
+                </div>
+
+            </div>
+
+
+            <div class="academy-faq-item">
+
+                <button
+                    type="button"
+                    class="academy-faq-question"
+                >
+
+                    Will the Academy give me a strategy?
+
+                    <i data-lucide="plus"></i>
+
+                </button>
+
+
+                <div class="academy-faq-answer">
+
+                    The focus is on understanding how a strategy
+                    is built, tested, executed and managed rather
+                    than depending on random signals.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+====================================================== -->
+
+<section class="academy-section">
+
+    <div class="container">
+
+        <div class="academy-final-cta">
+
+            <span class="section-label">
+                Your Next Step
+            </span>
+
+
+            <h2>
+
+                Stop Collecting Knowledge.
+
+                <br>
+
+                Start Building A
+
+                <span class="academy-gradient">
+                    Trading Process.
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                Choose your starting point, learn the
+                fundamentals, practice deliberately, manage
+                risk and keep improving through evidence.
+
+            </p>
+
+
+            <div class="academy-final-actions">
+
+                <a
+                    href="#courses"
+                    class="btn btn-primary"
+                >
+
+                    Browse Courses
+
+                    <i data-lucide="arrow-down"></i>
+
+                </a>
+
+
+                <a
+                    href="#mentorship"
+                    class="btn btn-secondary"
+                >
+
+                    Explore Mentorship
+
+                    <i data-lucide="user-round"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="nav-brand"
+            >
+
+                <img
+                    src="images/logo.png"
+                    alt="VANTYX FX"
+                    class="footer-logo-image"
+                >
+
+            </a>
+
+
+            <p>
+
+                A structured trading ecosystem built around
+                market analysis, education, execution,
+                technology and disciplined risk management.
+
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Platform
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="software.html">
+                Software
+            </a>
+
+            <a href="live-analysis.html">
+                Live Analysis
+            </a>
+
+            <a href="tools.html">
+                Tools
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Academy
+            </h4>
+
+            <a href="#courses">
+                Courses
+            </a>
+
+            <a href="#mentorship">
+                Mentorship
+            </a>
+
+            <a href="pages/manual-trading.html">
+                Manual Trading
+            </a>
+
+            <a href="pages/risk-management.html">
+                Risk Management
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Connect
+            </h4>
+
+            <a
+                href="https://www.instagram.com/zullu_fx/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Instagram
+            </a>
+
+            <a
+                href="https://www.tiktok.com/@zullufx.com"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                TikTok
+            </a>
+
+            <a
+                href="https://www.youtube.com/@Zullu_fx"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                YouTube
+            </a>
+
+            <a
+                href="https://wa.me/254719229005"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+        <p>
+            © 2026 VANTYX FX. All rights reserved.
+        </p>
+
+
+        <p>
+            Trading involves financial risk.
+            Past performance does not guarantee future results.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     VANTYX AI
+====================================================== -->
+
+<button
+    class="ai-floating-button"
+    id="aiFloatingButton"
+    type="button"
+    aria-label="Open VANTYX AI"
+>
+
+    <span class="ai-pulse"></span>
+
+    <i data-lucide="bot"></i>
+
+    <span>
+        VANTYX AI
+    </span>
+
+</button>
+
+
+<!-- =====================================================
+     AI PANEL
+====================================================== -->
+
+<aside
+    class="ai-panel glass"
+    data-ai-panel
+    aria-label="VANTYX FX AI Assistant"
+>
+
+    <div class="ai-header">
+        <div>
+
+            <strong>
+                VANTYX FX AI Assistant
+            </strong>
+
+            <span>
+
+                <span class="live-dot"></span>
+
+                Online
+
+            </span>
+
+        </div>
+
+
+        <button
+            type="button"
+            data-ai-close
+            aria-label="Close AI"
+        >
+
+            <i data-lucide="x"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="ai-body">
+
+        <div class="ai-avatar">
+            AI
+        </div>
+
+
+        <h3>
+            Hi there, Nicholas
+        </h3>
+
+
+        <p>
+            How can we help?
+        </p>
+
+
+        <div class="ai-section-title">
+            Send us a message
+        </div>
+
+
+        <button
+            type="button"
+            class="ai-option"
+        >
+
+            <i data-lucide="rocket"></i>
+
+            Getting Started
+
+        </button>
+
+
+        <button
+            type="button"
+            class="ai-option"
+        >
+
+            <i data-lucide="graduation-cap"></i>
+
+            Courses & Mentorship
+
+        </button>
+
+
+        <button
+            type="button"
+            class="ai-option"
+        >
+
+            <i data-lucide="bot"></i>
+
+            Trading Software
+
+        </button>
+
+
+        <button
+            type="button"
+            class="ai-option"
+        >
+
+            <i data-lucide="wallet"></i>
+
+            Account & Funding
+
+        </button>
+
+
+        <div class="ai-links">
+
+            <a href="pages/blog.html">
+                Blog & Guides
+            </a>
+
+            <a href="pages/faq.html">
+                FAQ
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="ai-footer">
+
+        <button type="button">
+
+            <i data-lucide="home"></i>
+
+            Home
+
+        </button>
+
+
+        <button type="button">
+
+            <i data-lucide="message-square"></i>
+
+            Messages
+
+        </button>
+
+
+        <button type="button">
+
+            <i data-lucide="ticket"></i>
+
+            Tickets
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+    /* =====================================================
+       LUCIDE ICONS
+    ===================================================== */
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+
+    /* =====================================================
+       MOBILE NAVIGATION
+    ===================================================== */
+
+    const mobileMenuToggle =
+        document.getElementById(
+            "mobileMenuToggle"
+        );
+
+    const mobileMenu =
+        document.getElementById(
+            "mobileMenu"
+        );
+
+
+    if (
+        mobileMenuToggle &&
+        mobileMenu
+    ) {
+
+        mobileMenuToggle.addEventListener(
+            "click",
+            () => {
+
+                const isOpen =
+                    mobileMenu.classList.toggle(
+                        "active"
+                    );
+
+
+                mobileMenuToggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+
+                mobileMenuToggle.innerHTML =
+                    isOpen
+                    ? '<i data-lucide="x"></i>'
+                    : '<i data-lucide="menu"></i>';
+
+
+                if (window.lucide) {
+                    lucide.createIcons();
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       FAQ ACCORDION
+    ===================================================== */
+
+    const faqItems =
+        document.querySelectorAll(
+            ".academy-faq-item"
+        );
+
+
+    faqItems.forEach(
+        item => {
+
+            const question =
+                item.querySelector(
+                    ".academy-faq-question"
+                );
+
+
+            question.addEventListener(
+                "click",
+                () => {
+
+                    const wasOpen =
+                        item.classList.contains(
+                            "open"
+                        );
+
+
+                    faqItems.forEach(
+                        otherItem => {
+
+                            otherItem.classList.remove(
+                                "open"
+                            );
+
+                        }
+                    );
+
+
+                    if (!wasOpen) {
+
+                        item.classList.add(
+                            "open"
+                        );
+
+                    }
+
+
+                    if (window.lucide) {
+                        lucide.createIcons();
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       AI BUTTON
+    ===================================================== */
+
+    const aiButton =
+        document.getElementById(
+            "aiFloatingButton"
+        );
+
+    const aiPanel =
+        document.querySelector(
+            "[data-ai-panel]"
+        );
+
+    const aiClose =
+        document.querySelector(
+            "[data-ai-close]"
+        );
+
+
+    if (
+        aiButton &&
+        aiPanel
+    ) {
+
+        aiButton.addEventListener(
+            "click",
+            () => {
+
+                aiPanel.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+    }
+
+
+    if (
+        aiClose &&
+        aiPanel
+    ) {
+
+        aiClose.addEventListener(
+            "click",
+            () => {
+
+                aiPanel.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CLOSE MOBILE MENU AFTER NAVIGATION
+    ===================================================== */
+
+    if (mobileMenu) {
+
+        mobileMenu
+            .querySelectorAll("a")
+            .forEach(
+                link => {
+
+                    link.addEventListener(
+                        "click",
+                        () => {
+
+                            mobileMenu.classList.remove(
+                                "active"
+                            );
+
+
+                            mobileMenuToggle?.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+
+                            if (
+                                mobileMenuToggle
+                            ) {
+
+                                mobileMenuToggle.innerHTML =
+                                    '<i data-lucide="menu"></i>';
+
+                                if (window.lucide) {
+                                    lucide.createIcons();
+                                }
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+
+
+});
+
+</script>
+
+</body>
+
+</html>
