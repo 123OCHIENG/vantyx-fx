@@ -1,0 +1,45 @@
+﻿/* =========================================
+   VANTYX FX — RESPONSIVE SYSTEM
+   ========================================= */
+
+@media (max-width: 1100px) {
+    .container {
+        width: min(100% - 32px, var(--container));
+    }
+
+    .section {
+        padding: 90px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 75px 0;
+    }
+
+    .section-title {
+        font-size: clamp(34px, 10vw, 48px);
+    }
+
+    .section-description {
+        font-size: 15px;
+    }
+
+    .container {
+        width: min(100% - 24px, var(--container));
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-label {
+        font-size: 10px;
+    }
+}
