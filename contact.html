@@ -1,0 +1,4559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VANTYX FX | Contact Us</title>
+
+    <meta
+        name="description"
+        content="Contact VANTYX FX for trading education, mentorship, software, market analysis, tools and community support."
+    >
+
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         LUCIDE ICONS
+    ====================================================== -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+    <!-- =====================================================
+         COMPLETE CONTACT PAGE CSS
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           VANTYX FX — CONTACT PAGE DESIGN SYSTEM
+        ====================================================== */
+
+        :root {
+
+            --bg: #05070b;
+            --bg-soft: #090d14;
+            --bg-deep: #04060a;
+
+            --card: rgba(13,18,28,0.78);
+            --card-solid: #0d121c;
+            --card-hover: #111925;
+
+            --text: #f5f7fa;
+            --text-soft: #a9b2c0;
+            --text-muted: #707b8c;
+
+            --gold: #d6a84f;
+            --gold-light: #f2d38a;
+            --gold-dark: #9d7428;
+
+            --cyan: #35d6ff;
+            --cyan-dark: #087c9c;
+
+            --success: #39d98a;
+            --danger: #ff5c6c;
+
+            --border: rgba(255,255,255,0.08);
+            --border-light: rgba(255,255,255,0.13);
+            --border-gold: rgba(214,168,79,0.28);
+            --border-cyan: rgba(53,214,255,0.24);
+
+            --shadow-sm:
+                0 15px 45px rgba(0,0,0,0.20);
+
+            --shadow:
+                0 20px 60px rgba(0,0,0,0.45);
+
+            --shadow-lg:
+                0 30px 90px rgba(0,0,0,0.55);
+
+            --glow-gold:
+                0 0 50px rgba(214,168,79,0.12);
+
+            --glow-cyan:
+                0 0 50px rgba(53,214,255,0.10);
+
+            --radius-sm: 10px;
+            --radius: 18px;
+            --radius-lg: 28px;
+            --radius-xl: 34px;
+            --pill: 999px;
+
+            --container: 1180px;
+
+            --nav-height: 76px;
+
+            --transition: 0.3s ease;
+            --transition-fast: 0.18s ease;
+        }
+
+
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg);
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(214,168,79,0.055),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 28%,
+                    rgba(53,214,255,0.035),
+                    transparent 30%
+                ),
+                var(--bg);
+
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: -1;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.015) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.015) 1px,
+                    transparent 1px
+                );
+
+            background-size: 70px 70px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 80%
+                );
+        }
+
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+
+        button {
+            border: 0;
+            cursor: pointer;
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+
+        /* =====================================================
+           SCROLLBAR
+        ====================================================== */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-deep);
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(214,168,79,0.35);
+            border-radius: 999px;
+        }
+
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(214,168,79,0.60);
+        }
+
+
+        /* =====================================================
+           CONTAINER
+        ====================================================== */
+
+        .container {
+
+            width:
+                min(
+                    calc(100% - 40px),
+                    var(--container)
+                );
+
+            margin-inline: auto;
+        }
+
+
+        /* =====================================================
+           SECTIONS
+        ====================================================== */
+
+        .section {
+
+            position: relative;
+
+            padding: 110px 0;
+        }
+
+
+        /* =====================================================
+           SECTION HEADER
+        ====================================================== */
+
+        .section-header {
+
+            max-width: 780px;
+
+            margin:
+                0 auto 58px;
+
+            text-align: center;
+        }
+
+
+        .section-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 16px;
+
+            color:
+                var(--gold-light);
+
+            font-size:
+                0.68rem;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                0.16em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .section-label::before,
+        .section-label::after {
+
+            content: "";
+
+            width: 25px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--gold)
+                );
+        }
+
+
+        .section-label::after {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--gold),
+                    transparent
+                );
+        }
+
+
+        .section-title {
+
+            color:
+                var(--text);
+
+            font-size:
+                clamp(
+                    2.1rem,
+                    4vw,
+                    3.7rem
+                );
+
+            font-weight:
+                850;
+
+            line-height:
+                1.04;
+
+            letter-spacing:
+                -0.045em;
+        }
+
+
+        .section-description {
+
+            max-width:
+                700px;
+
+            margin:
+                20px auto 0;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.95rem;
+
+            line-height:
+                1.8;
+        }
+
+
+        .gradient-text {
+
+            background:
+                linear-gradient(
+                    110deg,
+                    var(--gold-light),
+                    var(--gold),
+                    #fff0bd
+                );
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            color:
+                transparent;
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ====================================================== */
+
+        .btn {
+
+            min-height:
+                50px;
+
+            padding:
+                13px 21px;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                10px;
+
+            border-radius:
+                10px;
+
+            font-size:
+                0.78rem;
+
+            font-weight:
+                800;
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition),
+                background var(--transition),
+                border-color var(--transition);
+        }
+
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+
+        .btn svg {
+            width: 17px;
+            height: 17px;
+        }
+
+
+        .btn-primary {
+
+            color:
+                #090909;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold-light),
+                    var(--gold)
+                );
+
+            box-shadow:
+                0 10px 30px
+                rgba(214,168,79,0.18);
+        }
+
+
+        .btn-primary:hover {
+
+            box-shadow:
+                0 15px 40px
+                rgba(214,168,79,0.30);
+        }
+
+
+        .btn-secondary {
+
+            color:
+                var(--text);
+
+            background:
+                rgba(255,255,255,0.035);
+
+            border:
+                1px solid var(--border);
+        }
+
+
+        .btn-secondary:hover {
+
+            border-color:
+                var(--border-gold);
+
+            background:
+                rgba(214,168,79,0.06);
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        .site-header {
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                1000;
+
+            background:
+                rgba(5,7,11,0.88);
+
+            border-bottom:
+                1px solid var(--border);
+
+            backdrop-filter:
+                blur(20px);
+
+            -webkit-backdrop-filter:
+                blur(20px);
+
+            transition:
+                background var(--transition),
+                border-color var(--transition),
+                box-shadow var(--transition);
+        }
+
+
+        .site-header.scrolled {
+
+            background:
+                rgba(5,7,11,0.97);
+
+            border-bottom-color:
+                rgba(214,168,79,0.18);
+
+            box-shadow:
+                0 10px 40px rgba(0,0,0,0.35);
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ====================================================== */
+
+        .nav-container {
+
+            width:
+                min(
+                    calc(100% - 40px),
+                    1280px
+                );
+
+            min-height:
+                var(--nav-height);
+
+            margin-inline:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                25px;
+        }
+
+
+        .nav-brand {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            flex-shrink:
+                0;
+        }
+
+
+        .nav-logo {
+
+            width:
+                auto;
+
+            height:
+                43px;
+
+            object-fit:
+                contain;
+        }
+
+
+        .desktop-nav {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                3px;
+
+            flex:
+                1;
+        }
+
+
+        .nav-link {
+
+            position:
+                relative;
+
+            padding:
+                28px 10px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.73rem;
+
+            font-weight:
+                650;
+
+            white-space:
+                nowrap;
+
+            transition:
+                color var(--transition);
+        }
+
+
+        .nav-link::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                10px;
+
+            right:
+                10px;
+
+            bottom:
+                17px;
+
+            height:
+                2px;
+
+            background:
+                var(--gold);
+
+            border-radius:
+                999px;
+
+            transform:
+                scaleX(0);
+
+            transition:
+                transform var(--transition);
+        }
+
+
+        .nav-link:hover,
+        .nav-link.active {
+
+            color:
+                var(--text);
+        }
+
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+
+            transform:
+                scaleX(1);
+        }
+
+
+        .nav-actions {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                15px;
+
+            flex-shrink:
+                0;
+        }
+
+
+        .nav-login {
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.77rem;
+
+            font-weight:
+                700;
+        }
+
+
+        .nav-login:hover {
+
+            color:
+                var(--text);
+        }
+
+
+        .nav-cta {
+
+            min-height:
+                42px;
+
+            padding:
+                10px 15px;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            border-radius:
+                9px;
+
+            color:
+                #090909;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold-light),
+                    var(--gold)
+                );
+
+            font-size:
+                0.72rem;
+
+            font-weight:
+                800;
+        }
+
+
+        .nav-cta svg {
+            width: 15px;
+        }
+
+
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
+
+        .mobile-menu-toggle {
+
+            display:
+                none;
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            place-items:
+                center;
+
+            color:
+                var(--text);
+
+            background:
+                rgba(255,255,255,0.03);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                9px;
+        }
+
+
+        .mobile-menu-toggle:hover {
+
+            color:
+                var(--gold-light);
+
+            border-color:
+                var(--border-gold);
+        }
+
+
+        .mobile-menu {
+
+            display:
+                none;
+
+            position:
+                absolute;
+
+            top:
+                100%;
+
+            left:
+                0;
+
+            right:
+                0;
+
+            padding:
+                18px 20px 25px;
+
+            flex-direction:
+                column;
+
+            gap:
+                2px;
+
+            background:
+                rgba(5,7,11,0.98);
+
+            border-bottom:
+                1px solid var(--border);
+
+            backdrop-filter:
+                blur(20px);
+
+            -webkit-backdrop-filter:
+                blur(20px);
+        }
+
+
+        .mobile-menu.active {
+
+            display:
+                flex;
+        }
+
+
+        .mobile-menu > a {
+
+            padding:
+                13px 8px;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.04);
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.8rem;
+
+            font-weight:
+                650;
+        }
+
+
+        .mobile-menu > a:hover {
+
+            color:
+                var(--gold-light);
+        }
+
+
+        .mobile-market-buttons {
+
+            margin-top:
+                12px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                8px;
+        }
+
+
+        .mobile-market-buttons a {
+
+            padding:
+                11px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                8px;
+
+            color:
+                var(--gold-light);
+
+            text-align:
+                center;
+
+            font-size:
+                0.68rem;
+
+            font-weight:
+                750;
+        }
+
+
+        /* =====================================================
+           CONTACT HERO
+        ====================================================== */
+
+        .contact-hero {
+
+            position:
+                relative;
+
+            min-height:
+                610px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            overflow:
+                hidden;
+
+            padding:
+                90px 0;
+        }
+
+
+        .contact-hero::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 18%,
+                    rgba(214,168,79,0.11),
+                    transparent 33%
+                ),
+
+                radial-gradient(                    circle at 85% 70%,
+                    rgba(53,214,255,0.045),
+                    transparent 30%
+                );
+
+            pointer-events:
+                none;
+        }
+
+
+        .contact-glow {
+
+            position:
+                absolute;
+
+            border-radius:
+                50%;
+
+            filter:
+                blur(100px);
+
+            pointer-events:
+                none;
+        }
+
+
+        .contact-glow-one {
+
+            width:
+                320px;
+
+            height:
+                320px;
+
+            top:
+                5%;
+
+            left:
+                10%;
+
+            background:
+                rgba(214,168,79,0.06);
+        }
+
+
+        .contact-glow-two {
+
+            width:
+                280px;
+
+            height:
+                280px;
+
+            right:
+                7%;
+
+            bottom:
+                5%;
+
+            background:
+                rgba(53,214,255,0.045);
+        }
+
+
+        .contact-hero-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            max-width:
+                900px;
+
+            margin-inline:
+                auto;
+
+            text-align:
+                center;
+        }
+
+
+        .contact-hero h1 {
+
+            margin-top:
+                20px;
+
+            font-size:
+                clamp(
+                    3rem,
+                    7vw,
+                    5.8rem
+                );
+
+            line-height:
+                0.98;
+
+            letter-spacing:
+                -0.065em;
+
+            font-weight:
+                900;
+        }
+
+
+        .contact-hero-content > p {
+
+            max-width:
+                720px;
+
+            margin:
+                28px auto 0;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                1rem;
+
+            line-height:
+                1.85;
+        }
+
+
+        .contact-hero-actions {
+
+            margin-top:
+                32px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                12px;
+        }
+
+
+        /* =====================================================
+           CONTACT GRID
+        ====================================================== */
+
+        .contact-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                0.85fr 1.15fr;
+
+            gap:
+                25px;
+
+            align-items:
+                stretch;
+        }
+
+
+        .contact-info-card,
+        .contact-form-card {
+
+            position:
+                relative;
+
+            padding:
+                35px;
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.012)
+                );
+
+            box-shadow:
+                var(--shadow-sm);
+
+            backdrop-filter:
+                blur(15px);
+
+            -webkit-backdrop-filter:
+                blur(15px);
+        }
+
+
+        .contact-info-card {
+
+            background:
+
+                radial-gradient(
+                    circle at 0% 0%,
+                    rgba(214,168,79,0.08),
+                    transparent 38%
+                ),
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.012)
+                );
+        }
+
+
+        .contact-card-label {
+
+            color:
+                var(--gold-light);
+
+            font-size:
+                0.64rem;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                0.12em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .contact-info-card h2,
+        .contact-form-card h2 {
+
+            margin-top:
+                11px;
+
+            font-size:
+                clamp(
+                    1.7rem,
+                    3vw,
+                    2.4rem
+                );
+
+            line-height:
+                1.05;
+
+            letter-spacing:
+                -0.04em;
+        }
+
+
+        .contact-info-card > p {
+
+            margin-top:
+                15px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.78rem;
+
+            line-height:
+                1.8;
+        }
+
+
+        /* =====================================================
+           CONTACT METHODS
+        ====================================================== */
+
+        .contact-methods {
+
+            margin-top:
+                30px;
+
+            display:
+                grid;
+
+            gap:
+                12px;
+        }
+
+
+        .contact-method {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                13px;
+
+            padding:
+                14px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                12px;
+
+            background:
+                rgba(255,255,255,0.018);
+
+            transition:
+                border-color var(--transition),
+                background var(--transition),
+                transform var(--transition);
+        }
+
+
+        .contact-method:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                var(--border-gold);
+
+            background:
+                rgba(214,168,79,0.04);
+        }
+
+
+        .contact-method-icon {
+
+            width:
+                44px;
+
+            height:
+                44px;
+
+            flex-shrink:
+                0;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border:
+                1px solid var(--border-gold);
+
+            border-radius:
+                11px;
+
+            color:
+                var(--gold-light);
+
+            background:
+                rgba(214,168,79,0.06);
+        }
+
+
+        .contact-method-icon.cyan {
+
+            color:
+                var(--cyan);
+
+            border-color:
+                var(--border-cyan);
+
+            background:
+                rgba(53,214,255,0.05);
+        }
+
+
+        .contact-method-icon.success {
+
+            color:
+                var(--success);
+
+            border-color:
+                rgba(57,217,138,0.20);
+
+            background:
+                rgba(57,217,138,0.045);
+        }
+
+
+        .contact-method-icon svg {
+
+            width:
+                20px;
+
+            height:
+                20px;
+        }
+
+
+        .contact-method-text strong {
+
+            display:
+                block;
+
+            color:
+                var(--text);
+
+            font-size:
+                0.75rem;
+        }
+
+
+        .contact-method-text span {
+
+            display:
+                block;
+
+            margin-top:
+                3px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.63rem;
+        }
+
+
+        /* =====================================================
+           SOCIAL LINKS
+        ====================================================== */
+
+        .social-title {
+
+            margin-top:
+                30px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.62rem;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                0.1em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .social-links {
+
+            margin-top:
+                11px;
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                8px;
+        }
+
+
+        .social-link {
+
+            width:
+                38px;
+
+            height:
+                38px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                9px;
+
+            color:
+                var(--text-muted);
+
+            background:
+                rgba(255,255,255,0.018);
+
+            transition:
+                color var(--transition-fast),
+                border-color var(--transition-fast),
+                background var(--transition-fast),
+                transform var(--transition-fast);
+        }
+
+
+        .social-link:hover {
+
+            transform:
+                translateY(-2px);
+
+            color:
+                var(--gold-light);
+
+            border-color:
+                var(--border-gold);
+
+            background:
+                rgba(214,168,79,0.05);
+        }
+
+
+        .social-link svg {
+
+            width:
+                17px;
+
+            height:
+                17px;
+        }
+
+
+        /* =====================================================
+           CONTACT FORM
+        ====================================================== */
+
+        .contact-form-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                230px;
+
+            height:
+                230px;
+
+            top:
+                -110px;
+
+            right:
+                -90px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(53,214,255,0.035);
+
+            filter:
+                blur(40px);
+
+            pointer-events:
+                none;
+        }
+
+
+        .contact-form-card > * {
+
+            position:
+                relative;
+
+            z-index:
+                1;
+        }
+
+
+        .contact-form {
+
+            margin-top:
+                27px;
+
+            display:
+                grid;
+
+            gap:
+                16px;
+        }
+
+
+        .form-row {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap:
+                14px;
+        }
+
+
+        .form-group {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                7px;
+        }
+
+
+        .form-group label {
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.62rem;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                0.07em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .form-control {
+
+            width:
+                100%;
+
+            min-height:
+                48px;
+
+            padding:
+                0 14px;
+
+            color:
+                var(--text);
+
+            background:
+                rgba(255,255,255,0.025);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                10px;
+
+            outline:
+                none;
+
+            font-size:
+                0.74rem;
+
+            transition:
+                border-color var(--transition-fast),
+                box-shadow var(--transition-fast),
+                background var(--transition-fast);
+        }
+
+
+        textarea.form-control {
+
+            min-height:
+                145px;
+
+            padding:
+                13px 14px;
+
+            resize:
+                vertical;
+        }
+
+
+        select.form-control {
+
+            appearance:
+                none;
+
+            background-image:
+
+                linear-gradient(
+                    45deg,
+                    transparent 50%,
+                    var(--gold) 50%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    var(--gold) 50%,
+                    transparent 50%
+                );
+
+            background-position:
+
+                calc(100% - 17px) 20px,
+                calc(100% - 13px) 20px;
+
+            background-size:
+                4px 4px,
+                4px 4px;
+
+            background-repeat:
+                no-repeat;
+
+            padding-right:
+                40px;
+        }
+
+
+        .form-control::placeholder {
+
+            color:
+                var(--text-muted);
+        }
+
+
+        .form-control:focus {
+
+            background:
+                rgba(255,255,255,0.045);
+
+            border-color:
+                var(--border-gold);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(214,168,79,0.05);
+        }
+
+
+        .form-submit {
+
+            margin-top:
+                4px;
+
+            display:
+                flex;
+
+            justify-content:
+                flex-start;
+        }
+
+
+        .form-submit .btn {
+
+            min-width:
+                180px;
+        }
+
+
+        .form-note {
+
+            margin-top:
+                5px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.6rem;
+
+            line-height:
+                1.6;
+        }
+
+
+        .form-status {
+
+            display:
+                none;
+
+            padding:
+                11px 13px;
+
+            border:
+                1px solid
+                rgba(57,217,138,0.18);
+
+            border-radius:
+                10px;
+
+            color:
+                var(--success);
+
+            background:
+                rgba(57,217,138,0.045);
+
+            font-size:
+                0.66rem;
+        }
+
+
+        .form-status.show {
+
+            display:
+                block;
+        }
+
+
+        /* =====================================================
+           SUPPORT OPTIONS
+        ====================================================== */
+
+        .support-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                18px;
+        }
+
+
+        .support-card {
+
+            padding:
+                28px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                var(--radius);
+
+            background:
+                rgba(255,255,255,0.018);
+
+            transition:
+                transform var(--transition),
+                border-color var(--transition),
+                background var(--transition);
+        }
+
+
+        .support-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                var(--border-gold);
+
+            background:
+                rgba(214,168,79,0.035);
+        }
+
+
+        .support-icon {
+
+            width:
+                52px;
+
+            height:
+                52px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            border:
+                1px solid var(--border-gold);
+
+            border-radius:
+                14px;
+
+            color:
+                var(--gold-light);
+
+            background:
+                rgba(214,168,79,0.06);
+        }
+
+
+        .support-icon.cyan {
+
+            color:
+                var(--cyan);
+
+            border-color:
+                var(--border-cyan);
+
+            background:
+                rgba(53,214,255,0.05);
+        }
+
+
+        .support-icon.success {
+
+            color:
+                var(--success);
+
+            border-color:
+                rgba(57,217,138,0.20);
+
+            background:
+                rgba(57,217,138,0.04);
+        }
+
+
+        .support-icon svg {
+
+            width:
+                24px;
+
+            height:
+                24px;
+        }
+
+
+        .support-card h3 {
+
+            margin-top:
+                18px;
+
+            font-size:
+                0.95rem;
+        }
+
+
+        .support-card p {
+
+            margin-top:
+                9px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.72rem;
+
+            line-height:
+                1.75;
+        }
+
+
+        .support-card a {
+
+            margin-top:
+                19px;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            color:
+                var(--gold-light);
+
+            font-size:
+                0.68rem;
+
+            font-weight:
+                800;
+        }
+
+
+        .support-card a svg {
+
+            width:
+                14px;
+        }
+
+
+        /* =====================================================
+           FAQ
+        ====================================================== */
+
+        .faq-list {
+
+            max-width:
+                850px;
+
+            margin:                0 auto;
+
+            display:
+                grid;
+
+            gap:
+                10px;
+        }
+
+
+        .faq-item {
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                12px;
+
+            background:
+                rgba(255,255,255,0.018);
+        }
+
+
+        .faq-question {
+
+            width:
+                100%;
+
+            padding:
+                18px 20px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+            color:
+                var(--text);
+
+            background:
+                transparent;
+
+            text-align:
+                left;
+
+            font-size:
+                0.74rem;
+
+            font-weight:
+                750;
+        }
+
+
+        .faq-question svg {
+
+            width:
+                17px;
+
+            flex-shrink:
+                0;
+
+            color:
+                var(--gold-light);
+
+            transition:
+                transform var(--transition-fast);
+        }
+
+
+        .faq-item.active
+        .faq-question svg {
+
+            transform:
+                rotate(180deg);
+        }
+
+
+        .faq-answer {
+
+            display:
+                grid;
+
+            grid-template-rows:
+                0fr;
+
+            transition:
+                grid-template-rows
+                var(--transition);
+        }
+
+
+        .faq-answer-inner {
+
+            overflow:
+                hidden;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.70rem;
+
+            line-height:
+                1.75;
+        }
+
+
+        .faq-item.active
+        .faq-answer {
+
+            grid-template-rows:
+                1fr;
+        }
+
+
+        .faq-answer-inner > div {
+
+            padding:
+                0 20px 19px;
+        }
+
+
+        /* =====================================================
+           CTA
+        ====================================================== */
+
+        .contact-cta {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            padding:
+                75px 40px;
+
+            text-align:
+                center;
+
+            border:
+                1px solid var(--border-gold);
+
+            border-radius:
+                var(--radius-lg);
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(214,168,79,0.13),
+                    transparent 45%
+                ),
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.04),
+                    rgba(255,255,255,0.012)
+                );
+
+            box-shadow:
+                var(--glow-gold);
+        }
+
+
+        .contact-cta::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                320px;
+
+            height:
+                320px;
+
+            left:
+                50%;
+
+            top:
+                0;
+
+            transform:
+                translate(-50%,-65%);
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(214,168,79,0.08);
+
+            filter:
+                blur(75px);
+        }
+
+
+        .contact-cta > * {
+
+            position:
+                relative;
+
+            z-index:
+                1;
+        }
+
+
+        .contact-cta h2 {
+
+            margin-top:
+                10px;
+
+            font-size:
+                clamp(
+                    2.2rem,
+                    5vw,
+                    4rem
+                );
+
+            line-height:
+                1;
+
+            letter-spacing:
+                -0.055em;
+        }
+
+
+        .contact-cta p {
+
+            max-width:
+                680px;
+
+            margin:
+                20px auto 0;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.87rem;
+
+            line-height:
+                1.8;
+        }
+
+
+        .contact-cta-actions {
+
+            margin-top:
+                30px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                12px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        .site-footer {
+
+            margin-top:
+                80px;
+
+            background:
+                #04060a;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .footer-grid {
+
+            padding:
+                75px 0 50px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.5fr
+                repeat(3,1fr);
+
+            gap:
+                50px;
+        }
+
+
+        .footer-logo {
+
+            width:
+                auto;
+
+            height:
+                40px;
+
+            object-fit:
+                contain;
+        }
+
+
+        .footer-brand p {
+
+            max-width:
+                310px;
+
+            margin-top:
+                18px;
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.72rem;
+
+            line-height:
+                1.8;
+        }
+
+
+        .footer-column {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            align-items:
+                flex-start;
+
+            gap:
+                10px;
+        }
+
+
+        .footer-column h4 {
+
+            margin-bottom:
+                6px;
+
+            color:
+                var(--text);
+
+            font-size:
+                0.70rem;
+
+            letter-spacing:
+                0.08em;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .footer-column a {
+
+            color:
+                var(--text-muted);
+
+            font-size:
+                0.68rem;
+
+            transition:
+                color var(--transition-fast);
+        }
+
+
+        .footer-column a:hover {
+
+            color:
+                var(--gold-light);
+        }
+
+
+        .footer-bottom {
+
+            padding:
+                20px 0;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+            border-top:
+                1px solid var(--border);
+        }
+
+
+        .footer-bottom p {
+
+            color:
+                #596271;
+
+            font-size:
+                0.60rem;
+        }
+
+
+        /* =====================================================
+           AI FLOATING BUTTON
+        ====================================================== */
+
+        .ai-floating-button {
+
+            position:
+                fixed;
+
+            right:
+                25px;
+
+            bottom:
+                25px;
+
+            z-index:
+                1200;
+
+            min-height:
+                52px;
+
+            padding:
+                0 17px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                9px;
+
+            color:
+                var(--text);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(214,168,79,0.16),
+                    rgba(8,12,18,0.95)
+                );
+
+            border:
+                1px solid var(--border-gold);
+
+            border-radius:
+                50px;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.40),
+                0 0 30px rgba(214,168,79,0.08);
+
+            backdrop-filter:
+                blur(15px);
+
+            font-size:
+                0.70rem;
+
+            font-weight:
+                800;
+
+            transition:
+                transform var(--transition),
+                border-color var(--transition);
+        }
+
+
+        .ai-floating-button:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                var(--gold);
+        }
+
+
+        .ai-floating-button svg {
+
+            width:
+                18px;
+
+            color:
+                var(--gold-light);
+        }
+
+
+        .ai-pulse {
+
+            width:
+                7px;
+
+            height:
+                7px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--success);
+
+            box-shadow:
+                0 0 12px
+                rgba(57,217,138,0.7);
+
+            animation:
+                aiPulse 1.8s infinite;
+        }
+
+
+        @keyframes aiPulse {
+
+            0%,
+            100% {
+
+                opacity:
+                    1;
+
+                transform:
+                    scale(1);
+            }
+
+            50% {
+
+                opacity:
+                    0.45;
+
+                transform:
+                    scale(0.78);
+            }
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — 1100
+        ====================================================== */
+
+        @media (max-width: 1100px) {
+
+            .desktop-nav {
+                gap: 0;
+            }
+
+
+            .nav-link {
+                padding-inline:
+                    7px;
+
+                font-size:
+                    0.68rem;
+            }
+
+
+            .contact-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .contact-info-card {
+                min-height:
+                    auto;
+            }
+
+
+            .support-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .footer-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .footer-brand {
+                grid-column:
+                    1 / -1;
+            }
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — 800
+        ====================================================== */
+
+        @media (max-width: 800px) {
+
+            :root {
+                --nav-height:
+                    68px;
+            }
+
+
+            .container {
+                width:
+                    min(
+                        calc(100% - 30px),
+                        var(--container)
+                    );
+            }
+
+
+            .desktop-nav,
+            .nav-actions {
+                display:
+                    none;
+            }
+
+
+            .mobile-menu-toggle {
+                display:
+                    grid;
+            }
+
+
+            .contact-hero {
+                min-height:
+                    auto;
+
+                padding:
+                    80px 0;
+            }
+
+
+            .contact-hero h1 {
+                font-size:
+                    clamp(
+                        2.8rem,
+                        13vw,
+                        4.6rem
+                    );
+            }
+
+
+            .contact-hero-actions {
+                flex-direction:
+                    column;
+
+                width:
+                    100%;
+            }
+
+
+            .contact-hero-actions .btn {
+                width:
+                    100%;
+            }
+
+
+            .contact-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .form-row {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .support-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .contact-cta {
+                padding:
+                    60px 25px;
+            }
+
+
+            .footer-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE — 520
+        ====================================================== */
+
+        @media (max-width: 520px) {
+
+            .container {
+                width:
+                    min(
+                        calc(100% - 24px),
+                        var(--container)
+                    );
+            }
+
+
+            .section {
+                padding:
+                    75px 0;
+            }
+
+
+            .section-title {
+                font-size:
+                    2.15rem;
+            }
+
+
+            .contact-hero {
+                padding:
+                    65px 0;
+            }
+
+
+            .contact-hero-content > p {
+                font-size:
+                    0.88rem;
+            }
+
+
+            .contact-info-card,
+            .contact-form-card {
+                padding:
+                    25px;
+            }
+
+
+            .contact-method {
+                align-items:
+                    flex-start;
+            }
+
+
+            .contact-method-icon {
+                width:
+                    40px;
+
+                height:
+                    40px;
+            }
+
+
+            .form-submit .btn {
+                width:
+                    100%;
+            }
+
+
+            .contact-cta-actions {
+                flex-direction:
+                    column;
+            }
+
+
+            .contact-cta-actions .btn {
+                width:
+                    100%;
+            }
+
+
+            .footer-grid {
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap:
+                    35px 20px;
+            }
+
+
+            .footer-bottom {
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+            }
+
+
+            .ai-floating-button {
+                right:
+                    15px;
+
+                bottom:
+                    15px;
+            }
+
+        }
+
+
+        /* =====================================================
+           ACCESSIBILITY
+        ====================================================== */
+
+        :focus-visible {
+
+            outline:
+                2px solid var(--gold);
+
+            outline-offset:
+                3px;
+        }
+
+
+        ::selection {
+
+            color:
+                #090909;
+
+            background:
+                var(--gold-light);
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ====================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior:
+                    auto;
+            }
+
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header
+    class="site-header"
+    id="siteHeader"
+>
+
+    <div class="nav-container">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="index.html"
+            class="nav-brand"
+        >
+
+            <img
+                src="images/logo.png"
+                alt="VANTYX Traders Kenya FX"
+                class="nav-logo"
+            >
+
+        </a>
+
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav class="desktop-nav">
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                Home
+            </a>
+
+            <a
+                href="start-here.html"
+                class="nav-link"
+            >
+                Start Here
+            </a>
+
+            <a
+                href="software.html"
+                class="nav-link"
+            >
+                Software
+            </a>
+
+            <a
+                href="academy.html"
+                class="nav-link"
+            >
+                Academy
+            </a>
+
+            <a
+                href="live-analysis.html"
+                class="nav-link"
+            >
+                Live Analysis
+            </a>
+
+            <a
+                href="tools.html"
+                class="nav-link"
+            >
+                Tools
+            </a>
+
+            <a
+                href="testimonials.html"
+                class="nav-link"
+            >
+                Testimonials
+            </a>
+
+            <a
+                href="contact.html"
+                class="nav-link active"
+            >
+                Contact
+            </a>
+
+        </nav>
+
+
+        <!-- NAV ACTIONS -->
+
+        <div class="nav-actions">
+
+            <a
+                href="login.html"
+                class="nav-login"
+            >
+                Login
+            </a>
+
+
+            <a
+                href="start-here.html"
+                class="nav-cta"
+            >
+
+                Start Trading
+
+                <i data-lucide="arrow-up-right"></i>
+
+            </a>
+
+        </div>
+
+        <!-- MOBILE BUTTON -->
+
+        <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            type="button"
+            aria-label="Open navigation"
+        >
+
+            <i data-lucide="menu"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- MOBILE MENU -->
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="start-here.html">
+            Start Here
+        </a>
+
+        <a href="software.html">
+            Software
+        </a>
+
+        <a href="academy.html">
+            Academy
+        </a>
+
+        <a href="live-analysis.html">
+            Live Analysis
+        </a>
+
+        <a href="tools.html">
+            Tools
+        </a>
+
+        <a href="testimonials.html">
+            Testimonials
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="login.html">
+            Login
+        </a>
+
+
+        <div class="mobile-market-buttons">
+
+            <a
+                href="https://www.tradingview.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                TradingView
+            </a>
+
+            <a
+                href="https://www.metatrader5.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                MT5
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+    <!-- =====================================================
+         CONTACT HERO
+    ====================================================== -->
+
+    <section class="contact-hero">
+
+        <div class="contact-glow contact-glow-one"></div>
+
+        <div class="contact-glow contact-glow-two"></div>
+
+
+        <div class="container">
+
+            <div class="contact-hero-content">
+
+
+                <span class="section-label">
+                    VANTYX FX SUPPORT
+                </span>
+
+
+                <h1>
+
+                    Let's Build Your
+                    <span class="gradient-text">
+                        Trading Process.
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Have a question about VANTYX FX,
+                    our education, software, tools,
+                    mentorship or community?
+
+                    Send us a message and tell us what
+                    you need help with.
+
+                </p>
+
+
+                <div class="contact-hero-actions">
+
+                    <a
+                        href="#contact-form"
+                        class="btn btn-primary"
+                    >
+
+                        Send A Message
+
+                        <i data-lucide="send"></i>
+
+                    </a>
+
+
+                    <a
+                        href="start-here.html"
+                        class="btn btn-secondary"
+                    >
+
+                        Start Here
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACT SECTION
+    ====================================================== -->
+
+    <section
+        class="section"
+        id="contact-form"
+    >
+
+        <div class="container">
+
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    GET IN TOUCH
+                </span>
+
+
+                <h2 class="section-title">
+
+                    Contact
+                    <span class="gradient-text">
+                        VANTYX FX
+                    </span>
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    Choose the fastest communication channel
+                    or send a detailed message through the
+                    contact form.
+
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+
+                <!-- =================================================
+                     CONTACT INFORMATION
+                ================================================== -->
+
+                <div class="contact-info-card">
+
+
+                    <span class="contact-card-label">
+                        DIRECT SUPPORT
+                    </span>
+
+
+                    <h2>
+                        How Can We Help?
+                    </h2>
+
+
+                    <p>
+
+                        Tell us whether you need help with
+                        getting started, education, trading
+                        software, tools, account questions or
+                        general support.
+
+                    </p>
+
+
+                    <div class="contact-methods">
+
+
+                        <!-- EMAIL -->
+
+                        <a
+                            href="mailto:support@zullufx.com"
+                            class="contact-method"
+                        >
+
+                            <span class="contact-method-icon">
+
+                                <i data-lucide="mail"></i>
+
+                            </span>
+
+
+                            <span class="contact-method-text">
+
+                                <strong>
+                                    Email Support
+                                </strong>
+
+                                <span>
+                                    support@zullufx.com
+                                </span>
+
+                            </span>
+
+                        </a>
+
+
+                        <!-- WHATSAPP -->
+
+                        <a
+                            href="https://wa.me/254719229005"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-method"
+                        >
+
+                            <span class="contact-method-icon success">
+
+                                <i data-lucide="message-circle"></i>
+
+                            </span>
+
+
+                            <span class="contact-method-text">
+
+                                <strong>
+                                    WhatsApp
+                                </strong>
+
+                                <span>
+                                    Direct support channel
+                                </span>
+
+                            </span>
+
+                        </a>
+
+
+                        <!-- TELEGRAM -->
+
+                        <a
+                            href="https://t.me/Binary_Legacy_Hub"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-method"
+                        >
+
+                            <span class="contact-method-icon cyan">
+
+                                <i data-lucide="send"></i>
+
+                            </span>
+
+
+                            <span class="contact-method-text">
+
+                                <strong>
+                                    Telegram Community
+                                </strong>
+
+                                <span>
+                                    Join the VANTYX Traders Hub
+                                </span>
+
+                            </span>
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- SOCIAL -->
+
+                    <div class="social-title">
+                        FOLLOW VANTYX
+                    </div>
+
+
+                    <div class="social-links">
+
+
+                        <a
+                            href="https://www.instagram.com/zullu_fx/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="Instagram"
+                        >
+
+                            <i data-lucide="instagram"></i>
+
+                        </a>
+
+
+                        <a
+                            href="https://www.youtube.com/@Zullu_fx"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="YouTube"
+                        >
+
+                            <i data-lucide="youtube"></i>
+
+                        </a>
+
+
+                        <a
+                            href="https://www.tiktok.com/@zullufx.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="TikTok"
+                        >
+
+                            <i data-lucide="music-2"></i>
+
+                        </a>
+
+
+                        <a
+                            href="https://wa.me/254719229005"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="WhatsApp"
+                        >
+
+                            <i data-lucide="message-circle"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CONTACT FORM
+                ================================================== -->
+
+                <div class="contact-form-card">
+
+
+                    <span class="contact-card-label">
+                        SEND A MESSAGE
+                    </span>
+
+
+                    <h2>
+                        Tell Us What You Need
+                    </h2>
+
+
+                    <form
+                        class="contact-form"
+                        id="contactForm"
+                    >
+
+
+                        <div class="form-row">
+
+
+                            <div class="form-group">
+
+                                <label for="name">
+                                    Your Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    class="form-control"
+                                    placeholder="Enter your name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    class="form-control"
+                                    placeholder="you@example.com"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+
+                            <div class="form-group">
+
+                                <label for="phone">
+                                    Phone / WhatsApp
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    class="form-control"
+                                    placeholder="+254..."
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="topic">
+                                    What Do You Need?
+                                </label>
+
+                                <select
+                                    id="topic"
+                                    class="form-control"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select a topic
+                                    </option>
+
+                                    <option value="getting-started">
+                                        Getting Started
+                                    </option>
+
+                                    <option value="academy">
+                                        Academy / Courses
+                                    </option>
+
+                                    <option value="mentorship">
+                                        Mentorship
+                                    </option>
+
+                                    <option value="software">
+                                        Trading Software
+                                    </option>
+
+                                    <option value="tools">
+                                        Trading Tools
+                                    </option>
+
+                                    <option value="live-analysis">
+                                        Live Analysis
+                                    </option>
+
+                                    <option value="account">
+                                        Account / Login
+                                    </option>
+
+                                    <option value="general">
+                                        General Question
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="message">
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                class="form-control"
+                                placeholder="Describe what you need help with..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <div
+                            class="form-status"
+                            id="formStatus"
+                        >
+                            Your message has been prepared. Your email
+                            application will open to complete the send.
+                        </div>
+
+
+                        <div class="form-submit">
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                            >
+
+                                Send Message
+
+                                <i data-lucide="send"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <p class="form-note">
+
+                            VANTYX FX does not guarantee trading results.
+                            Trading involves financial risk.
+
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SUPPORT OPTIONS
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    SUPPORT PATHS
+                </span>
+
+
+                <h2 class="section-title">
+
+                    Start From
+                    <span class="gradient-text">
+                        Where You Are
+                    </span>
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    Choose the path that best matches what
+                    you are trying to accomplish.
+
+                </p>
+
+            </div>
+
+
+            <div class="support-grid">
+
+
+                <!-- START -->
+
+                <article class="support-card">
+
+                    <div class="support-icon">
+
+                        <i data-lucide="rocket"></i>
+
+                    </div>
+
+
+                    <h3>
+                        New To VANTYX?
+                    </h3>
+
+
+                    <p>
+
+                        Begin with the foundations and understand
+                        how the VANTYX ecosystem fits together.
+
+                    </p>
+
+
+                    <a
+                        href="start-here.html"
+                    >
+
+                        Start Here
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </article>
+
+
+                <!-- LEARN -->
+
+                <article class="support-card">
+
+                    <div class="support-icon cyan">
+
+                        <i data-lucide="graduation-cap"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Want To Learn?
+                    </h3>
+
+
+                    <p>
+
+                        Explore structured courses, practical
+                        lessons and the Academy.
+
+                    </p>
+
+
+                    <a
+                        href="academy.html"
+                    >
+
+                        Explore Academy
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </article>
+
+
+                <!-- SOFTWARE -->
+
+                <article class="support-card">
+
+                    <div class="support-icon success">
+
+                        <i data-lucide="bot"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Need Trading Technology?
+                    </h3>
+
+
+                    <p>
+
+                        Explore VANTYX software, automation and
+                        tools designed to support a trading process.
+
+                    </p>
+
+
+                    <a
+                        href="software.html"
+                    >
+
+                        View Software
+
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FAQ
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    QUICK ANSWERS
+                </span>
+
+
+                <h2 class="section-title">
+
+                    Frequently Asked
+                    <span class="gradient-text">
+                        Questions
+                    </span>
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    A few common questions before you reach out.
+
+                </p>
+
+            </div>
+
+
+            <div class="faq-list">
+
+
+                <!-- FAQ 1 -->
+
+                <div class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                    >
+
+                        <span>
+                            What is VANTYX FX?
+                        </span>
+
+                        <i data-lucide="chevron-down"></i>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <div class="faq-answer-inner">
+
+                            <div>
+
+                                VANTYX FX is a trading ecosystem
+                                combining education, tools, technology,
+                                market analysis, automation and community
+                                support.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 2 -->
+
+                <div class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                    >
+
+                        <span>
+                            Can I start without trading experience?
+                        </span>
+
+                        <i data-lucide="chevron-down"></i>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <div class="faq-answer-inner">
+
+                            <div>
+
+                                Yes. The Start Here section and Academy
+                                are designed to provide a structured entry
+                                point for traders who are still learning
+                                the foundations.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 3 -->
+
+                <div class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                    >
+
+                        <span>
+                            Does VANTYX guarantee trading profits?
+                        </span>
+
+                        <i data-lucide="chevron-down"></i>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <div class="faq-answer-inner">
+
+                            <div>
+
+                                No. No legitimate trading system can
+                                guarantee future profits. Trading involves
+                                substantial financial risk and results vary
+                                by trader, strategy, market conditions and
+                                execution.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 4 -->
+
+                <div class="faq-item">
+
+                    <button
+                        type="button"
+                        class="faq-question"
+                    >
+
+                        <span>
+                            Where can I access VANTYX tools?
+                        </span>
+
+                        <i data-lucide="chevron-down"></i>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <div class="faq-answer-inner">
+
+                            <div>
+
+                                Visit the Tools section to access the
+                                current calculators, planning interfaces,
+                                trading journal and other market tools.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FINAL CTA
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+
+            <div class="contact-cta">
+
+
+                <span class="section-label">
+                    VANTYX FX
+                </span>
+
+
+                <h2>
+
+                    Ready To Build
+                    <span class="gradient-text">
+                        Your Process?
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Start with the foundations, learn the framework,
+                    use the tools and build your trading process
+                    one step at a time.
+
+                </p>
+
+
+                <div class="contact-cta-actions">
+
+
+                    <a
+                        href="start-here.html"
+                        class="btn btn-primary"
+                    >
+
+                        Start Here
+                        <i data-lucide="arrow-right"></i>
+
+                    </a>
+
+
+                    <a
+                        href="academy.html"
+                        class="btn btn-secondary"
+                    >
+
+                        Explore Academy
+
+                        <i data-lucide="graduation-cap"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a href="index.html">
+
+                    <img
+                        src="images/logo.png"
+                        alt="VANTYX FX"
+                        class="footer-logo"
+                    >
+
+                </a>
+
+
+                <p>
+
+                    Trade Like a Titan with VANTYX FX.
+                    Education, technology, automation,
+                    tools and disciplined trading development.
+
+                </p>
+
+            </div>
+
+
+            <!-- PLATFORM -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Platform
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="software.html">
+                    Software
+                </a>
+
+                <a href="live-analysis.html">
+                    Live Analysis
+                </a>
+
+                <a href="tools.html">
+                    Tools
+                </a>
+
+            </div>
+
+
+            <!-- EDUCATION -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Education
+                </h4>
+
+                <a href="start-here.html">
+                    Start Here
+                </a>
+
+                <a href="academy.html">
+                    Academy
+                </a>
+
+                <a href="testimonials.html">
+                    Testimonials
+                </a>
+
+            </div>
+
+
+            <!-- CONNECT -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Connect
+                </h4>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a
+                    href="https://wa.me/254719229005"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    WhatsApp
+                </a>
+
+                <a
+                    href="https://www.youtube.com/@Zullu_fx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    YouTube
+                </a>
+
+                <a
+                    href="https://www.instagram.com/zullu_fx/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 VANTYX FX. All rights reserved.
+            </p>
+
+            <p>
+                Trading involves substantial financial risk.
+                Past performance does not guarantee future results.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     AI FLOATING BUTTON
+========================================================= -->
+
+<button
+    class="ai-floating-button"
+    id="aiFloatingButton"
+    type="button"
+    aria-label="Open VANTYX AI"
+>
+
+    <span class="ai-pulse"></span>
+
+    <i data-lucide="bot"></i>
+
+    VANTYX AI
+
+</button>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* =====================================================
+       INITIALIZE ICONS
+    ====================================================== */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       MOBILE NAVIGATION
+    ====================================================== */
+
+    const mobileMenuToggle =
+        document.getElementById(
+            "mobileMenuToggle"
+        );
+
+
+    const mobileMenu =
+        document.getElementById(
+            "mobileMenu"
+        );
+
+
+    if (
+        mobileMenuToggle &&
+        mobileMenu
+    ) {
+
+        mobileMenuToggle.addEventListener(
+            "click",
+            function () {
+
+                mobileMenu.classList.toggle(
+                    "active"
+                );
+
+
+                const isOpen =
+                    mobileMenu.classList.contains(
+                        "active"
+                    );
+
+
+                mobileMenuToggle.innerHTML =
+                    isOpen
+                        ? '<i data-lucide="x"></i>'
+                        : '<i data-lucide="menu"></i>';
+
+
+                if (window.lucide) {
+                    lucide.createIcons();
+                }
+
+            }
+        );
+
+
+        mobileMenu
+            .querySelectorAll("a")
+            .forEach(
+                link => {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            mobileMenu.classList.remove(
+                                "active"
+                            );
+
+
+                            mobileMenuToggle.innerHTML =
+                                '<i data-lucide="menu"></i>';
+
+
+                            if (window.lucide) {
+                                lucide.createIcons();
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+
+
+    /* =====================================================
+       HEADER SCROLL EFFECT
+    ====================================================== */
+
+    const siteHeader =
+        document.getElementById(
+            "siteHeader"
+        );
+
+
+    function updateHeader() {
+
+        if (!siteHeader) {
+            return;
+        }
+
+
+        siteHeader.classList.toggle(
+            "scrolled",
+            window.scrollY > 20
+        );
+
+    }
+
+
+    updateHeader();
+
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        {
+            passive: true
+        }
+    );
+
+
+    /* =====================================================
+       CONTACT FORM
+    ====================================================== */
+
+    const contactForm =
+        document.getElementById(
+            "contactForm"
+        );
+
+
+    const formStatus =
+        document.getElementById(
+            "formStatus"
+        );
+
+
+    if (contactForm) {
+
+        contactForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById(
+                        "name"
+                    ).value.trim();
+
+
+                const email =
+                    document.getElementById(
+                        "email"
+                    ).value.trim();
+
+
+                const phone =
+                    document.getElementById(
+                        "phone"
+                    ).value.trim();
+
+
+                const topic =
+                    document.getElementById(
+                        "topic"
+                    ).value;
+
+
+                const message =
+                    document.getElementById(
+                        "message"
+                    ).value.trim();
+
+
+                if (
+                    !name ||
+                    !email ||
+                    !topic ||
+                    !message
+                ) {
+
+                    return;
+
+                }
+
+
+                const subject =
+                    encodeURIComponent(
+                        "VANTYX FX Support — " +
+                        topic
+                    );
+
+
+                const body =
+                    encodeURIComponent(
+
+                        "Name: " +
+                        name +
+
+                        "\nEmail: " +
+                        email +
+
+                        "\nPhone / WhatsApp: " +
+                        (
+                            phone ||
+                            "Not provided"
+                        ) +
+
+                        "\nTopic: " +
+                        topic +
+
+                        "\n\nMessage:\n" +
+                        message
+
+                    );
+
+
+                window.location.href =
+                    "mailto:support@zullufx.com" +
+                    "?subject=" +
+                    subject +
+                    "&body=" +
+                    body;
+
+
+                if (formStatus) {
+
+                    formStatus.classList.add(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       FAQ ACCORDION
+    ====================================================== */
+
+    const faqItems =
+        document.querySelectorAll(
+            ".faq-item"
+        );
+
+
+    faqItems.forEach(
+        item => {
+
+            const question =
+                item.querySelector(
+                    ".faq-question"
+                );
+
+
+            question.addEventListener(
+                "click",
+                function () {
+
+                    faqItems.forEach(
+                        other => {
+
+                            if (
+                                other !== item
+                            ) {
+
+                                other.classList.remove(
+                                    "active"
+                                );
+
+                            }
+
+                        }
+                    );
+
+
+                    item.classList.toggle(
+                        "active"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       AI BUTTON HOOK
+    ====================================================== */
+
+    const aiButton =
+        document.getElementById(
+            "aiFloatingButton"
+        );
+
+
+    if (aiButton) {
+
+        aiButton.addEventListener(
+            "click",
+            function () {
+
+                const existingTrigger =
+                    document.querySelector(
+                        "[data-ai-trigger]"
+                    );
+
+
+                if (existingTrigger) {
+
+                    existingTrigger.click();
+
+                } else {
+
+                    console.log(
+                        "VANTYX AI opened."
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       FINAL ICON REFRESH
+    ====================================================== */
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+</script>
+
+
+</body>
+
+</html>
