@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Trading Academy | VANTYX FX</title>
+
+    <meta
+        name="description"
+        content="Learn trading with VANTYX FX. Explore trading courses, mentorship, risk management, manual trading, automation and practical market education."
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <script
+        src="https://unpkg.com/lucide@latest"
+    ></script>
+
+
+    <style>
+
+        /* =====================================================
+           VANTYX FX — ACADEMY / COURSES PAGE
+        ===================================================== */
+
+        .academy-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 125px 0 90px;
+
+            background:
+                radial-gradient(
+                    circle at 20% 25%,
+                    rgba(254, 165, 0, 0.08),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 35%,
+                    rgba(0, 254, 226, 0.055),
+                    transparent 32%
+                );
+        }
+
+        .academy-hero::before {
+            content: "";
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            right: -250px;
+            top: -200px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 254, 226, 0.035);
+
+            filter: blur(110px);
+
+            pointer-events: none;
+        }
+
+        .academy-hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 900px;
+
+            margin-inline: auto;
+
+            text-align: center;
+        }
+
+        .academy-hero h1 {
+            margin-top: 18px;
+
+            font-size:
+                clamp(
+                    3rem,
+                    7vw,
+                    5.8rem
+                );
+
+            line-height: 0.96;
+
+            letter-spacing: -0.06em;
+        }
+
+        .academy-hero p {
+            max-width: 760px;
+
+            margin: 25px auto 0;
+
+            color: var(--text-soft);
+
+            font-size: 1rem;
+
+            line-height: 1.8;
+        }
+
+        .academy-hero-actions {
+            margin-top: 32px;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .academy-metrics {
+            margin-top: 45px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 10px;
+        }
+
+        .academy-metric {
+            padding: 18px 12px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,0.018);
+        }
+
+        .academy-metric strong {
+            display: block;
+
+            color: var(--text);
+
+            font-size: 1.15rem;
+        }
+
+        .academy-metric span {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--text-muted);
+
+            font-size: 0.6rem;
+
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           ACADEMY SWITCHER
+        ===================================================== */
+
+        .academy-switcher {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-bottom: 45px;
+        }
+
+        .academy-switcher button {
+            padding: 11px 18px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 999px;
+
+            color: var(--text-soft);
+
+            background:
+                rgba(255,255,255,0.018);
+
+            font-size: 0.68rem;
+
+            font-weight: 800;
+
+            transition:
+                all var(--transition);
+        }
+
+        .academy-switcher button:hover {
+            border-color:
+                var(--border-gold);
+
+            color:
+                var(--text);
+        }
+
+        .academy-switcher button.active {
+            color: #050505;
+
+            border-color:
+                var(--gold);
+
+            background:
+                var(--gold);
+        }
+
+
+        /* =====================================================
+           MENTORSHIP HERO CARD
+        ===================================================== */
+
+        .mentorship-card {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 40px;
+
+            border:
+                1px solid
+                rgba(254,165,0,0.22);
+
+            border-radius: 24px;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(254,165,0,0.08),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.01)
+                );
+
+            box-shadow:
+                0 25px 80px
+                rgba(0,0,0,0.35);
+        }
+
+        .mentorship-layout {
+            display: grid;
+
+            grid-template-columns:
+                0.85fr 1.15fr;
+
+            gap: 45px;
+
+            align-items: center;
+        }
+
+        .mentor-visual {
+            min-height: 390px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .mentor-image-card {
+            position: relative;
+
+            width: min(
+                100%,
+                360px
+            );
+
+            height: 390px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--border-gold);
+
+            border-radius: 22px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 30%,
+                    rgba(254,165,0,0.10),
+                    transparent 38%
+                ),
+                #080c12;
+
+            box-shadow:
+                var(--shadow);
+        }
+
+        .mentor-placeholder {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            color: var(--text-muted);
+        }
+
+        .mentor-placeholder-symbol {
+            width: 105px;
+            height: 105px;
+
+            display: grid;
+
+            place-items: center;
+
+            border:
+                1px solid
+                var(--border-gold);
+
+            border-radius: 50%;
+
+            color:
+                var(--gold-light);
+
+            background:
+                rgba(254,165,0,0.055);
+
+            font-size: 3.3rem;
+
+            font-weight: 900;
+        }
+
+        .mentor-placeholder span {
+            color: var(--text-soft);
+
+            font-size: 0.67rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.14em;
+        }
+
+        .mentor-placeholder small {
+            font-size: 0.62rem;
+        }
+
+        .mentor-badge {
+            position: absolute;
+
+            left: 18px;
+            bottom: 18px;
+
+            padding: 10px 13px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 9px;
+
+            background:
+                rgba(5,7,11,0.88);
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.62rem;
+
+            font-weight:
+                750;
+
+            backdrop-filter:
+                blur(12px);
+        }
+
+        .mentorship-content h2 {
+            margin-top: 15px;
+
+            font-size:
+                clamp(
+                    2rem,
+                    4vw,
+                    3.5rem
+                );
+
+            line-height: 1;
+
+            letter-spacing:
+                -0.05em;
+        }
+
+        .mentorship-content > p {
+            margin-top: 18px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.85rem;
+
+            line-height:
+                1.8;
+        }
+
+        .mentorship-list {
+            margin-top: 25px;
+
+            display: grid;
+
+            gap: 11px;
+        }
+
+        .mentorship-list li {
+            display: flex;
+
+            align-items:
+                flex-start;
+
+            gap: 10px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.73rem;
+        }
+
+        .mentorship-list svg {
+            width: 16px;
+
+            flex-shrink: 0;
+
+            margin-top: 2px;
+
+            color:
+                var(--success);
+        }
+
+        .mentorship-content .btn {
+            margin-top: 28px;
+        }
+
+
+        /* =====================================================
+           WHO MENTORSHIP IS FOR
+        ===================================================== */
+
+        .audience-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .academy-card {
+            padding: 28px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,0.018);
+
+            transition:
+                transform var(--transition),
+                border-color var(--transition),
+                background var(--transition);
+        }
+
+        .academy-card:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                var(--border-gold);
+
+            background:
+                rgba(254,165,0,0.025);
+        }
+
+        .academy-card .card-icon {
+            margin-bottom: 20px;
+        }
+
+        .academy-card h3 {
+            font-size: 1rem;
+        }
+
+        .academy-card p {
+            margin-top: 10px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.75rem;
+
+            line-height:
+                1.75;
+        }
+
+
+        /* =====================================================
+           COURSE GRID
+        ===================================================== */
+
+        .course-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .course-card {
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            min-height: 420px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.01)
+                );
+
+            transition:
+                transform var(--transition),
+                border-color var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .course-card:hover {
+            transform:
+                translateY(-6px);
+
+            border-color:
+                var(--border-gold);
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,0.30);
+        }
+
+        .course-card.featured {
+            border-color:
+                rgba(0,254,226,0.18);
+        }
+
+        .course-image {
+            height: 170px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(0,254,226,0.06),
+                    transparent 55%
+                ),
+                #070b11;
+        }
+
+        .course-image-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .mentor-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .course-image-placeholder {
+            width: 85%;
+            height: 72%;
+
+            display: grid;
+
+            place-items: center;
+
+            border:
+                1px dashed
+                rgba(0,254,226,0.16);
+
+            border-radius:
+                12px;
+
+            color:
+                var(--text-muted);
+
+            text-align:
+                center;
+
+            font-size:
+                0.62rem;
+        }
+
+        .course-content {
+            flex: 1;
+
+            padding: 24px;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .course-tag {
+            display: inline-flex;
+
+            align-self:
+                flex-start;
+
+            padding:
+                5px 8px;
+
+            border:
+                1px solid
+                var(--border-gold);
+
+            border-radius:
+                999px;
+
+            color:
+                var(--gold-light);
+
+            background:
+                rgba(254,165,0,0.045);
+
+            font-size:
+                0.54rem;
+
+            font-weight:
+                850;
+
+            letter-spacing:
+                0.08em;
+
+            text-transform:
+                uppercase;
+        }
+
+        .course-content h3 {
+            margin-top:
+                14px;
+
+            font-size:
+                1.05rem;
+        }
+
+        .course-content p {
+            margin-top:
+                9px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.7rem;
+
+            line-height:
+                1.72;
+        }
+
+        .course-features {
+            margin-top:
+                17px;
+
+            display:
+                grid;
+
+            gap:
+                8px;
+        }
+
+        .course-features li {
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            gap:
+                8px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.64rem;
+        }
+
+        .course-features svg {
+            width:
+                14px;
+
+            flex-shrink:
+                0;
+
+            color:
+                var(--success);
+
+            margin-top:
+                2px;
+        }
+
+        .course-content .btn {
+            width:
+                100%;
+
+            margin-top:
+                auto;
+
+            padding-top:
+                18px;
+        }
+
+
+        /* =====================================================
+           THREE PILLARS
+        ===================================================== */
+
+        .academy-pillars {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                20px;
+        }
+
+        .academy-pillar {
+            padding:
+                30px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                18px;
+
+            background:
+                rgba(255,255,255,0.018);
+        }
+
+        .academy-pillar .card-icon {
+            margin-bottom:
+                20px;
+        }
+
+        .academy-pillar h3 {
+            font-size:
+                1rem;
+        }
+
+        .academy-pillar p {
+            margin-top:
+                10px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.75rem;
+
+            line-height:
+                1.75;
+        }
+
+
+        /* =====================================================
+           LEARNING PROCESS
+        ===================================================== */
+
+        .learning-grid {
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+        }
+
+        .learning-step {
+            position:
+                relative;
+
+            padding:
+                25px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                15px;
+
+            background:
+                rgba(255,255,255,0.018);
+        }
+
+        .learning-step-number {
+            color:
+                rgba(254,165,0,0.30);
+
+            font-size:
+                0.72rem;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                0.08em;
+        }
+
+        .learning-step h3 {
+            margin-top:
+                15px;
+
+            font-size:
+                0.9rem;
+        }
+
+        .learning-step p {
+            margin-top:
+                9px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.68rem;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* =====================================================
+           FAQ
+        ===================================================== */
+
+        .academy-faq {
+            max-width:
+                850px;
+
+            margin:
+                0 auto;
+
+            display:
+                grid;
+
+            gap:
+                10px;
+        }
+
+        .faq-item {
+            overflow:
+                hidden;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                12px;
+
+            background:
+                rgba(255,255,255,0.018);
+        }
+
+        .faq-question {
+            width:
+                100%;
+
+            padding:
+                18px 20px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+            color:
+                var(--text);
+
+            background:
+                transparent;
+
+            text-align:
+                left;
+
+            font-size:
+                0.78rem;
+
+            font-weight:
+                750;
+        }
+
+        .faq-question svg {
+            width:
+                17px;
+
+            flex-shrink:
+                0;
+
+            color:
+                var(--gold-light);
+        }
+
+        .faq-answer {
+            display:
+                none;
+
+            padding:
+                0 20px 20px;
+
+            color:
+                var(--text-soft);
+
+            font-size:
+                0.73rem;
+
+            line-height:
+                1.75;
+        }
+
+        .faq-item.open .faq-answer {
+            display:
