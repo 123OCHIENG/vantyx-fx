@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VANTYX FX | Trading Tools</title>
+
+    <meta
+        name="description"
+        content="VANTYX FX Trading Tools — risk calculators, market sessions, economic data, currency strength, correlation, trading journal and performance analytics."
+    >
+
+    <!-- =====================================================
+         GLOBAL STYLES
+    ====================================================== -->
+<!-- =====================================================
+         ICON LIBRARY
+    ====================================================== -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
+<style>
+
+:root{
+    --bg:#05070b;
+    --bg-soft:#090d14;
+    --bg-card:rgba(13,18,28,.78);
+    --bg-card-solid:#0d121c;
+    --text:#f5f7fa;
+    --text-soft:#a9b2c0;
+    --text-muted:#707b8c;
+    --gold:rgb(248, 145, 9);
+    --gold-light:#12e6db;
+    --gold-dark:#c77f00;
+    --cyan:#35d6ff;
+    --cyan-dark:#087c9c;
+    --success:#39d98a;
+    --danger:#ff5c6c;
+    --warning:#ca781a;
+    --border:rgba(255,255,255,.08);
+    --border-gold:rgba(248, 145, 9, .28);
+    --border-cyan:rgba(53,214,255,.22);
+    --shadow:0 20px 60px rgba(0,0,0,.45);
+    --shadow-gold:0 0 50px rgba(248, 145, 9, .12);
+    --radius:18px;
+    --radius-lg:28px;
+    --container:1180px;
+    --nav-height:76px;
+    --transition:.3s ease;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+    min-height:100vh;
+    color:var(--text);
+    font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(248, 145, 9, .055),transparent 28%),
+        radial-gradient(circle at 85% 35%,rgba(53,214,255,.04),transparent 28%),
+        var(--bg);
+    -webkit-font-smoothing:antialiased;
+}
+body::before{
+    content:"";
+    position:fixed;inset:0;pointer-events:none;z-index:-1;
+    background-image:
+        linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+    background-size:70px 70px;
+    mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+ul{list-style:none}
+.container{width:min(calc(100% - 40px),var(--container));margin-inline:auto}
+.section{position:relative;padding:110px 0}
+.center{display:flex;align-items:center;justify-content:center}
+
+.section-header,.tool-section-header{
+    width:100%;
+    max-width:780px;
+    margin:0 auto 55px;
+    text-align:center !important;
+}
+.section-label{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:15px;
+    color:var(--gold-light);
+    font-size:.7rem;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+.section-label::before,.section-label::after{
+    content:"";width:25px;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold));
+}
+.section-label::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.section-title,.tool-section-header h2{
+    color:var(--text);
+    font-size:clamp(2rem,4vw,3.5rem);
+    line-height:1.05;
+    letter-spacing:-.04em;
+    font-weight:800;
+    text-align:center !important;
+}
+.section-description,.tool-section-header>p{
+    max-width:720px;
+    margin:20px auto 0;
+    color:var(--text-soft);
+    font-size:.95rem;
+    line-height:1.8;
+    text-align:center !important;
+}
+.gradient-text{
+    background:linear-gradient(110deg,var(--gold-light),var(--gold),#fff0bd);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.text-success{color:var(--success)!important}
+.text-danger{color:var(--danger)!important}
+.text-orange{color:var(--gold-light)!important}
+.gold-line{width:70px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);border-radius:999px}
+
+.btn{
+    min-height:50px;padding:13px 21px;display:inline-flex;align-items:center;justify-content:center;
+    gap:10px;border:0;border-radius:10px;font-size:.86rem;font-weight:750;
+    transition:transform var(--transition),box-shadow var(--transition),background var(--transition),border-color var(--transition);
+}
+.btn:hover{transform:translateY(-3px)}
+.btn svg{width:17px;height:17px}
+.btn-primary{color:#090909;background:linear-gradient(135deg,var(--gold-light),var(--gold));box-shadow:0 10px 30px rgba(214,168,79,.18)}
+.btn-primary:hover{box-shadow:0 15px 40px rgba(214,168,79,.30)}
+.btn-secondary{color:var(--text);background:rgba(255,255,255,.035);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--border-gold);background:rgba(214,168,79,.06)}
+
+.site-header{
+    position:sticky;top:0;z-index:1000;
+    background:rgba(5,7,11,.88);
+    border-bottom:1px solid var(--border);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+}
+.nav-container{
+    width:min(calc(100% - 40px),1280px);
+    min-height:var(--nav-height);margin-inline:auto;
+    display:flex;align-items:center;justify-content:space-between;gap:25px;
+}
+.nav-brand{display:inline-flex;align-items:center;flex-shrink:0}
+.nav-logo-image{width:145px;height:auto;object-fit:contain}
+.desktop-nav{display:flex;align-items:center;justify-content:center;gap:3px;flex:1}
+.nav-link{
+    position:relative;padding:28px 10px;color:var(--text-soft);font-size:.77rem;font-weight:650;
+    transition:color var(--transition)
+}
+.nav-link::after{
+    content:"";position:absolute;left:10px;right:10px;bottom:18px;height:2px;background:var(--gold);
+    transform:scaleX(0);transform-origin:center;transition:transform var(--transition)
+}
+.nav-link:hover,.nav-link.active{color:var(--text)}
+.nav-link:hover::after,.nav-link.active::after{transform:scaleX(1)}
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-market-link{
+    min-height:40px;padding:9px 12px;display:inline-flex;align-items:center;gap:7px;
+    border:1px solid var(--border);border-radius:9px;color:var(--text-soft);
+    background:rgba(255,255,255,.025);font-size:.68rem;font-weight:800;
+    transition:all var(--transition)
+}
+.nav-market-link svg{width:15px;height:15px}
+.nav-market-link:hover{transform:translateY(-2px);border-color:var(--border-gold);color:var(--gold-light);background:rgba(214,168,79,.05)}
+.nav-market-link.tradingview:hover{border-color:var(--border-cyan);color:var(--cyan);background:rgba(53,214,255,.04)}
+.nav-market-link.mt5{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#090909;border-color:rgba(214,168,79,.4)}
+.nav-login{color:var(--text-soft);font-size:.78rem;font-weight:700}
+.nav-login:hover{color:var(--text)}
+.nav-cta{
+    min-height:42px;padding:10px 15px;display:inline-flex;align-items:center;gap:8px;border-radius:9px;
+    color:#090909;background:linear-gradient(135deg,var(--gold-light),var(--gold));font-size:.75rem;font-weight:800
+}
+.nav-cta svg{width:15px}
+.mobile-menu-toggle{
+    display:none;width:42px;height:42px;place-items:center;border:1px solid var(--border);
+    border-radius:9px;color:var(--text);background:rgba(255,255,255,.03)
+}
+.mobile-menu{
+    display:none;position:absolute;top:100%;left:0;right:0;padding:18px 20px 25px;
+    flex-direction:column;gap:2px;border-bottom:1px solid var(--border);background:rgba(5,7,11,.97);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)
+}
+.mobile-menu.active{display:flex}
+.mobile-menu>a{padding:13px 8px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text-soft);font-size:.82rem;font-weight:650}
+.mobile-menu>a:hover{color:var(--gold-light)}
+.mobile-market-buttons{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mobile-market-buttons a{
+    padding:11px;display:flex;align-items:center;justify-content:center;gap:7px;
+    border:1px solid var(--border);border-radius:8px;color:var(--gold-light);text-align:center;font-size:.7rem;font-weight:750
+}
+.mobile-market-buttons svg{width:15px}
+
+.market-ticker{width:100%;overflow:hidden;border-bottom:1px solid var(--border);background:#070a10}
+.ticker-track{width:max-content;min-height:39px;display:flex;align-items:center;animation:tickerMove 32s linear infinite}
+.ticker-item{
+    min-height:39px;padding:0 25px;display:inline-flex;align-items:center;gap:8px;border-right:1px solid var(--border);
+    color:var(--text-muted);font-size:.67rem;font-weight:700;white-space:nowrap
+}
+.ticker-item strong{color:var(--text)}
+.live-dot{width:7px;height:7px;display:inline-block;border-radius:50%;background:var(--success);box-shadow:0 0 0 4px rgba(57,217,138,.08);animation:livePulse 1.8s infinite}
+
+.tools-hero{
+    position:relative;min-height:520px;display:flex;align-items:center;overflow:hidden;padding:100px 0 80px
+}
+.tools-hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(circle at 50% 25%,rgba(214,168,79,.12),transparent 30%),radial-gradient(circle at 85% 70%,rgba(53,214,255,.05),transparent 30%)
+}
+.hero-content{position:relative;z-index:2;max-width:850px;margin-inline:auto;text-align:center}
+.hero-glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.hero-glow-one{width:300px;height:300px;top:5%;left:40%;background:rgba(214,168,79,.07)}
+.hero-glow-two{width:250px;height:250px;right:5%;bottom:5%;background:rgba(53,214,255,.05)}
+.hero-content .section-label{margin-bottom:15px}
+.hero-content h1,.tools-hero h1{margin-top:10px;text-align:center;font-size:clamp(3rem,7vw,5.7rem);line-height:.96;letter-spacing:-.06em;font-weight:900}
+.hero-content>p,.tools-hero p{max-width:720px;margin:25px auto 0;color:var(--text-soft);font-size:1rem;line-height:1.85;text-align:center}
+.hero-stat-strip{margin-top:40px;display:flex;justify-content:center;flex-wrap:wrap;gap:30px}
+.hero-stat{display:flex;align-items:center;gap:9px;color:var(--text-muted);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.hero-stat svg{width:18px;color:var(--gold-light)}
+
+.tool-nav-wrapper{
+    position:sticky;top:var(--nav-height);z-index:100;padding:14px 0;border-bottom:1px solid var(--border);
+    background:rgba(5,7,11,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)
+}
+.tool-nav{display:flex;align-items:center;justify-content:center;gap:8px;overflow-x:auto;scrollbar-width:none}
+.tool-nav::-webkit-scrollbar{display:none}
+.tool-nav-btn{
+    flex-shrink:0;padding:9px 13px;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);
+    border-radius:8px;color:var(--text-muted);background:rgba(255,255,255,.02);font-size:.68rem;font-weight:750;
+    transition:all var(--transition)
+}
+.tool-nav-btn svg{width:15px}
+.tool-nav-btn:hover,.tool-nav-btn.active{color:var(--gold-light);border-color:var(--border-gold);background:rgba(214,168,79,.06)}
+
+.tool-section{scroll-margin-top:135px}
+.tool-section-header h2{margin-top:10px}
+.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tool-card,.calculator-card,.result-card,.journal-card{
+    position:relative;padding:28px;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius);
+    background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+    box-shadow:0 15px 50px rgba(0,0,0,.18);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px)
+}
+.tool-card{transition:transform var(--transition),border-color var(--transition),box-shadow var(--transition)}
+.tool-card::before{
+    content:"";position:absolute;width:150px;height:150px;right:-75px;top:-75px;border-radius:50%;
+    background:rgba(214,168,79,.05);filter:blur(25px);pointer-events:none
+}
+.tool-card:hover{transform:translateY(-6px);border-color:var(--border-gold);box-shadow:0 25px 70px rgba(0,0,0,.3),0 0 35px rgba(214,168,79,.05)}
+.tool-card.large{grid-column:span 2}.tool-card.full{grid-column:1/-1}
+.tool-icon,.mini-icon,.glossary-icon{
+    position:relative;width:58px;height:58px;display:grid;place-items:center;margin-bottom:22px;
+    border:1px solid var(--border-gold);border-radius:16px;color:var(--gold-light);
+    background:linear-gradient(145deg,rgba(214,168,79,.12),rgba(214,168,79,.025));
+    box-shadow:inset 0 0 20px rgba(214,168,79,.025),0 0 25px rgba(214,168,79,.035)
+}
+.tool-icon::after,.glossary-icon::after{
+    content:"";position:absolute;inset:5px;border:1px solid rgba(214,168,79,.08);border-radius:11px;pointer-events:none
+}
+.tool-icon svg,.mini-icon svg,.glossary-icon svg{position:relative;z-index:2;width:25px;height:25px;stroke-width:1.8}
+.tool-icon.cyan{color:var(--cyan);border-color:var(--border-cyan);background:linear-gradient(145deg,rgba(53,214,255,.1),rgba(53,214,255,.02))}
+.tool-icon.success{color:var(--success);border-color:rgba(57,217,138,.2);background:rgba(57,217,138,.045)}
+.tool-icon.warning{color:var(--warning);border-color:rgba(255,189,89,.2);background:rgba(255,189,89,.045)}
+.tool-card h3{font-size:1.02rem;letter-spacing:-.015em}
+.tool-card>p{margin-top:10px;color:var(--text-soft);font-size:.77rem;line-height:1.75}
+.tool-tag{position:absolute;top:20px;right:20px;padding:5px 8px;border:1px solid var(--border);border-radius:6px;color:var(--text-muted);font-size:.56rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.tool-tag.live{color:var(--success);border-color:rgba(57,217,138,.16);background:rgba(57,217,138,.035)}
+.tool-tag.soon{color:var(--gold-light);border-color:var(--border-gold)}
+.tool-action{
+    margin-top:22px;width:100%;min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border:1px solid var(--border);border-radius:9px;color:var(--text);background:rgba(255,255,255,.025);font-size:.7rem;font-weight:800;transition:all var(--transition)
+}
+.tool-action:hover{color:#090909;border-color:var(--gold);background:linear-gradient(135deg,var(--gold-light),var(--gold));transform:translateY(-2px)}
+.tool-action svg{width:16px}
+
+.calculator-layout{display:grid;grid-template-columns:1.25fr .75fr;gap:20px}
+.calculator-title{display:flex;align-items:center;gap:13px;margin-bottom:25px}
+.mini-icon{width:42px;height:42px;margin:0;border-radius:11px}
+.mini-icon svg{width:20px}
+.calculator-title h3{font-size:1rem}.calculator-title span{display:block;margin-top:3px;color:var(--text-muted);font-size:.62rem}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.form-group{display:flex;flex-direction:column;gap:7px}.form-group.full{grid-column:1/-1}
+.form-group label{color:var(--text-muted);font-size:.63rem;font-weight:750;letter-spacing:.06em;text-transform:uppercase}
+.form-control{
+    width:100%;min-height:45px;padding:10px 12px;border:1px solid var(--border);border-radius:9px;outline:none;
+    color:var(--text);background:rgba(255,255,255,.025);font-size:.76rem;transition:border-color var(--transition),box-shadow var(--transition)
+}
+.form-control:focus{border-color:var(--border-gold);box-shadow:0 0 0 3px rgba(214,168,79,.05)}
+select.form-control{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 16px) 19px,calc(100% - 12px) 19px;background-size:4px 4px,4px 4px;background-repeat:no-repeat}
+.calculator-buttons,.journal-actions{margin-top:20px;display:flex;gap:10px}
+.result-card{position:relative;overflow:hidden;background:radial-gradient(circle at 100% 0%,rgba(214,168,79,.1),transparent 40%),var(--bg-card)}
+.result-heading{color:var(--text-muted);font-size:.63rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.main-result{margin-top:10px;color:var(--gold-light);font-size:2.7rem;line-height:1;font-weight:850}
+.result-sub{margin-top:7px;color:var(--text-muted);font-size:.65rem}
+.result-grid{margin-top:30px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.result-item{padding:15px;border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.018)}
+.result-item span{display:block;color:var(--text-muted);font-size:.58rem;text-transform:uppercase}
+.result-item strong{display:block;margin-top:5px;color:var(--text);font-size:.9rem}
+
+.live-header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}
+.live-header h3{font-size:1rem}.live-header p{margin-top:4px;color:var(--text-muted);font-size:.68rem}
+.live-status{display:inline-flex;align-items:center;gap:7px;color:var(--success);font-size:.62rem;font-weight:800;text-transform:uppercase}
+.live-status-dot{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 12px rgba(57,217,138,.7)}
+
+.sessions-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.session-card{padding:22px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.02)}
+.session-card.active{border-color:rgba(57,217,138,.22);background:rgba(57,217,138,.035)}
+.session-top{display:flex;align-items:center;justify-content:space-between}
+.session-name{display:flex;align-items:center;gap:8px;color:var(--text);font-size:.76rem;font-weight:800}
+.session-indicator{width:7px;height:7px;border-radius:50%;background:var(--text-muted)}
+.session-card.active .session-indicator{background:var(--success);box-shadow:0 0 10px rgba(57,217,138,.6)}
+.session-status{color:var(--text-muted);font-size:.58rem;font-weight:700;text-transform:uppercase}
+.session-time{margin-top:16px;color:var(--text-soft);font-size:.7rem}.session-countdown{margin-top:5px;color:var(--gold-light);font-size:1.05rem;font-weight:800}
+.session-bar{height:4px;margin-top:15px;overflow:hidden;border-radius:10px;background:rgba(255,255,255,.05)}
+.session-bar span{display:block;width:65%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--gold-dark),var(--gold))}
+
+.calendar-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:15px}
+.filter-buttons{display:flex;gap:7px;flex-wrap:wrap}
+.filter-btn{padding:8px 11px;border:1px solid var(--border);border-radius:7px;color:var(--text-muted);background:rgba(255,255,255,.02);font-size:.62rem;font-weight:750}
+.filter-btn.active,.filter-btn:hover{color:var(--gold-light);border-color:var(--border-gold);background:rgba(214,168,79,.04)}
+.calendar-table-wrapper,.matrix-wrapper{overflow-x:auto;border:1px solid var(--border);border-radius:13px}
+.calendar-table,.matrix{width:100%;border-collapse:collapse;min-width:800px}
+.matrix{min-width:650px}
+.calendar-table th,.calendar-table td,.matrix th,.matrix td{padding:12px;border-bottom:1px solid var(--border);text-align:center;font-size:.62rem}
+.calendar-table th{text-align:left;color:var(--text-muted);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase}
+.calendar-table td{color:var(--text-soft);text-align:left}
+.matrix th{color:var(--text-muted);font-weight:800}.matrix td{color:var(--text-soft)}.matrix .pair{color:var(--text);font-weight:800;text-align:left}
+.impact{display:inline-flex;align-items:center;gap:4px}.impact span{width:5px;height:5px;border-radius:50%}
+.impact.high{color:var(--danger)}.impact.high span{background:var(--danger)}.impact.medium{color:var(--warning)}.impact.medium span{background:var(--warning)}.impact.low{color:var(--text-muted)}.impact.low span{background:var(--text-muted)}
+.corr-positive{color:var(--success)!important}.corr-negative{color:var(--danger)!important}.corr-neutral{color:var(--warning)!important}
+
+.strength-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.currency-strength{padding:17px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.018)}
+.currency-header{display:flex;justify-content:space-between}.currency-header strong{font-size:.78rem}.strength-value{color:var(--success);font-size:.72rem;font-weight:800}
+.strength-meter{height:5px;margin-top:12px;overflow:hidden;border-radius:10px;background:rgba(255,255,255,.05)}
+.strength-meter span{display:block;width:75%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--cyan-dark),var(--cyan))}
+
+.journal-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px}
+.journal-card{padding:28px}.journal-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
+.journal-stat{padding:17px;border:1px solid var(--border);border-radius:11px;background:rgba(255,255,255,.018)}
+.journal-stat span{display:block;color:var(--text-muted);font-size:.58rem;text-transform:uppercase}
+.journal-stat strong{display:block;margin-top:5px;font-size:1rem}
+.journal-database-icon{width:22px;color:var(--gold-light)}
+.empty-journal{padding:25px;text-align:center;color:var(--text-muted);border:1px dashed var(--border);border-radius:12px;font-size:.7rem}
+.journal-entry{padding:14px;margin-top:9px;border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.018)}
+.journal-entry-top{display:flex;justify-content:space-between;gap:10px}.journal-entry-meta{margin-top:6px;color:var(--text-muted);font-size:.62rem}.journal-entry-notes{margin-top:8px;color:var(--text-soft);font-size:.62rem;line-height:1.6}
+
+.performance-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.performance-card{padding:22px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.018)}
+.performance-card span{display:block;color:var(--text-muted);font-size:.6rem;text-transform:uppercase}
+.performance-card strong{display:block;margin-top:6px;color:var(--text);font-size:1.3rem}
+.performance-card small{display:block;margin-top:4px;color:var(--success);font-size:.6rem}
+
+.glossary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.glossary-card{padding:20px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.018);transition:all var(--transition)}
+.glossary-card:hover{border-color:var(--border-gold);transform:translateY(-3px)}
+.glossary-icon{width:44px;height:44px;margin-bottom:14px;border-radius:12px}
+.glossary-icon svg{width:20px;height:20px}.glossary-card strong{color:var(--gold-light);font-size:.8rem}.glossary-card p{margin-top:7px;color:var(--text-muted);font-size:.65rem;line-height:1.7}
+
+.correlation-select{width:150px}
+.tools-cta{
+    position:relative;overflow:hidden;padding:70px 40px;text-align:center;border:1px solid var(--border-gold);
+    border-radius:var(--radius-lg);
+    background:radial-gradient(circle at 50% 0%,rgba(214,168,79,.12),transparent 45%),linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.012));
+    box-shadow:var(--shadow-gold)
+}
+.tools-cta h2{font-size:clamp(2rem,5vw,3.5rem);line-height:1;letter-spacing:-.05em}
+.tools-cta p{max-width:650px;margin:18px auto 0;color:var(--text-soft);font-size:.85rem}
+.cta-buttons{margin-top:28px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+
+.site-footer{margin-top:80px;border-top:1px solid var(--border);background:#04060a}
+.footer-grid{padding:70px 0 50px;display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:45px}
+.footer-brand p{max-width:300px;margin-top:18px;color:var(--text-muted);font-size:.72rem;line-height:1.8}
+.footer-logo-image{width:145px;height:auto}
+.footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.footer-column h4{margin-bottom:5px;color:var(--text);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}
+.footer-column a{color:var(--text-muted);font-size:.68rem}.footer-column a:hover{color:var(--gold-light)}
+.footer-bottom{padding:20px 0;display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--border)}
+.footer-bottom p{color:#596271;font-size:.6rem}
+
+.ai-floating-button{
+    position:fixed;right:25px;bottom:25px;z-index:900;min-height:52px;padding:0 17px;
+    display:flex;align-items:center;gap:9px;border:1px solid var(--border-gold);border-radius:50px;color:var(--text);
+    background:linear-gradient(135deg,rgba(214,168,79,.16),rgba(8,12,18,.95));
+    box-shadow:0 15px 40px rgba(0,0,0,.4),0 0 30px rgba(214,168,79,.08);
+    backdrop-filter:blur(15px);font-size:.72rem;font-weight:800;transition:transform var(--transition)
+}
+.ai-floating-button:hover{transform:translateY(-4px)}
+.ai-floating-button svg{width:18px;color:var(--gold-light)}
+.ai-pulse{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 12px rgba(57,217,138,.7)}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+::selection{color:#090909;background:var(--gold-light)}
+
+@keyframes tickerMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.85)}}
+
+@media(max-width:1100px){
+    :root{--nav-height:74px}
+    .desktop-nav{gap:0}.nav-link{padding-inline:7px;font-size:.7rem}.nav-market-link{padding-inline:9px}
+    .tool-grid,.performance-grid,.method-grid{grid-template-columns:repeat(2,1fr)}
+    .sessions-grid,.strength-grid,.glossary-grid{grid-template-columns:repeat(2,1fr)}
+    .calculator-layout,.journal-layout{grid-template-columns:1fr}
+}
+@media(max-width:800px){
+    :root{--nav-height:68px}
+    .container{width:min(100% - 30px,var(--container))}
+    .desktop-nav,.nav-actions{display:none}.mobile-menu-toggle{display:grid}
+    .tool-nav-wrapper{top:var(--nav-height)}
+    .tools-hero{padding:75px 0 60px}
+    .section{padding:80px 0}
+    .tool-grid,.sessions-grid,.strength-grid,.performance-grid,.glossary-grid{grid-template-columns:1fr}
+    .tool-card.large,.tool-card.full{grid-column:auto}
+    .form-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}
+    .calendar-toolbar{align-items:flex-start;flex-direction:column}
+    .hero-stat-strip{gap:18px}
+    .footer-grid{grid-template-columns:repeat(2,1fr)}.footer-brand{grid-column:1/-1}
+    .footer-bottom{flex-direction:column}
+    .tool-nav{justify-content:flex-start}
+}
+@media(max-width:520px){
+    .container{width:min(100% - 25px,var(--container))}
+    .nav-container{width:min(100% - 25px,1280px);min-height:68px}
+    .nav-logo-image,.footer-logo-image{width:125px}
+    .tools-hero{padding:65px 0 50px}
+    .tools-hero h1{font-size:clamp(2.7rem,13vw,4.3rem)}
+    .tool-card,.calculator-card,.result-card,.journal-card{padding:23px}
+    .calculator-buttons,.journal-actions{flex-direction:column}
+    .calculator-buttons .btn,.journal-actions .btn{width:100%}
+    .tools-cta{padding:50px 20px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+    .ai-floating-button{right:15px;bottom:15px}
+}
+@media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="site-header">
+
+    <div class="nav-container">
+
+        <!-- LOGO -->
+
+        <a
+            href="index.html"
+            class="nav-brand"
+            aria-label="VANTYX FX Home"
+        >
+
+            <img
+                src="images/logo.png"
+                alt="VANTYX Traders Kenya FX"
+                class="nav-logo-image"
+            >
+
+        </a>
+
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav
+            class="desktop-nav"
+            aria-label="Main navigation"
+        >
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                Home
+            </a>
+
+            <a
+                href="start-here.html"
+                class="nav-link"
+            >
+                Start Here
+            </a>
+
+            <a
+                href="software.html"
+                class="nav-link"
+            >
+                Software
+            </a>
+
+            <a
+                href="academy.html"
+                class="nav-link"
+            >
+                Academy
+            </a>
+
+            <a
+                href="live-analysis.html"
+                class="nav-link"
+            >
+                Live Analysis
+            </a>
+
+            <a
+                href="tools.html"
+                class="nav-link active"
+            >
+                Tools
+            </a>
+
+        </nav>
+
+
+        <!-- NAV ACTIONS -->
+
+        <div class="nav-actions">
+
+            <a
+                href="https://www.tradingview.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-market-link tradingview"
+            >
+                <i data-lucide="candlestick-chart"></i>
+                TradingView
+            </a>
+
+
+            <a
+                href="https://www.metatrader5.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-market-link mt5"
+            >
+                <i data-lucide="bar-chart-3"></i>
+                MT5
+            </a>
+
+
+            <a
+                href="login.html"
+                class="nav-login"
+            >
+                Login
+            </a>
+
+
+            <a
+                href="academy.html"
+                class="nav-cta"
+            >
+                Start Learning
+                <i data-lucide="arrow-up-right"></i>
+            </a>
+
+        </div>
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            class="mobile-menu-toggle"
+            id="mobileMenuToggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+        >
+
+            <i data-lucide="menu"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- MOBILE NAVIGATION -->
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="start-here.html">
+            Start Here
+        </a>
+
+        <a href="software.html">
+            Software
+        </a>
+
+        <a href="academy.html">
+            Academy
+        </a>
+
+        <a href="live-analysis.html">
+            Live Analysis
+        </a>
+
+        <a href="tools.html">
+            Tools
+        </a>
+
+        <a href="login.html">
+            Login
+        </a>
+
+
+        <div class="mobile-market-buttons">
+
+            <a
+                href="https://www.tradingview.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i data-lucide="candlestick-chart"></i>
+                TradingView
+            </a>
+
+
+            <a
+                href="https://www.metatrader5.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <i data-lucide="bar-chart-3"></i>
+                MT5
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MARKET TICKER
+========================================================= -->
+
+<div class="market-ticker">
+
+    <div class="ticker-track">
+
+        <span class="ticker-item">
+
+            <span class="live-dot"></span>
+
+            LIVE MARKET
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            XAUUSD
+
+            <strong>
+                Live
+            </strong>
+
+            <span class="text-success">
+                ACTIVE
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            EURUSD
+
+            <strong>
+                Live
+            </strong>
+
+            <span class="text-success">
+                ACTIVE
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            GBPUSD
+
+            <strong>
+                Live
+            </strong>
+
+            <span class="text-success">
+                ACTIVE
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            BTCUSD
+
+            <strong>
+                Live
+            </strong>
+
+            <span class="text-success">
+                ACTIVE
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            DERIV
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                CONNECTED
+            </span>
+
+        </span>
+
+
+        <!-- Duplicate ticker set -->
+
+        <span class="ticker-item">
+
+            <span class="live-dot"></span>
+
+            LIVE MARKET
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            XAUUSD
+
+            <strong>
+                Live
+            </strong>
+
+            <span class="text-success">
+                ACTIVE
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            EURUSD
+
+            <strong>
+                Live
+            </strong>
+
+            <span class="text-success">
+                ACTIVE
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            GBPUSD
+
+            <strong>
+                Live
+            </strong>
+
+            <span class="text-success">
+                ACTIVE
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            BTCUSD
+
+            <strong>
+                Live
+            </strong>
+
+            <span class="text-success">
+                ACTIVE
+            </span>
+
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     TOOLS HERO
+========================================================= -->
+
+<section class="tools-hero">
+
+    <div class="hero-glow hero-glow-one"></div>
+
+    <div class="hero-glow hero-glow-two"></div>
+
+
+    <div class="container">
+
+        <div class="hero-content">
+
+
+            <span class="section-label">
+                VANTYX Trading Infrastructure
+            </span>
+
+
+            <h1>
+
+                Trade With
+
+                <span class="gradient-text">
+                    Precision.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                A centralized workspace for calculating risk,
+                planning trades, monitoring market conditions,
+                studying price relationships and reviewing
+                execution performance.
+
+                Built around a disciplined approach to analysis,
+                risk management and repeatable execution.
+
+            </p>
+
+
+            <div class="hero-stat-strip">
+
+
+                <div class="hero-stat">
+
+                    <i data-lucide="calculator"></i>
+
+                    <span>
+                        Risk Calculators
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <i data-lucide="clock-3"></i>
+
+                    <span>
+                        Market Sessions
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <i data-lucide="calendar-days"></i>
+
+                    <span>
+                        Economic Data
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <i data-lucide="chart-no-axes-combined"></i>
+
+                    <span>
+                        Performance
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TOOL NAVIGATION
+========================================================= -->
+
+<div class="tool-nav-wrapper">
+
+    <div class="container">
+
+        <nav
+            class="tool-nav"
+            id="toolNav"
+            aria-label="Trading tools navigation"
+        >
+
+            <a
+                href="#calculators"
+                class="tool-nav-btn active"
+            >
+                <i data-lucide="calculator"></i>
+                Calculators
+            </a>
+
+
+            <a
+                href="#sessions"
+                class="tool-nav-btn"
+            >
+                <i data-lucide="clock-3"></i>
+                Sessions
+            </a>
+
+
+            <a
+                href="#calendar"
+                class="tool-nav-btn"
+            >
+                <i data-lucide="calendar-days"></i>
+                Calendar
+            </a>
+
+
+            <a
+                href="#strength"
+                class="tool-nav-btn"
+            >
+                <i data-lucide="activity"></i>
+                Strength
+            </a>
+
+
+            <a
+                href="#correlation"
+                class="tool-nav-btn"
+            >
+                <i data-lucide="git-compare-arrows"></i>
+                Correlation
+            </a>
+
+
+            <a
+                href="#journal"
+                class="tool-nav-btn"
