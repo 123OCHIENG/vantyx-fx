@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Start Here | VANTYX FX</title>
+
+    <meta
+        name="description"
+        content="Start your trading journey with VANTYX FX. Set up your Deriv account, choose manual or automated trading, fund with M-Pesa and learn how to trade responsibly."
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+
+        /* =====================================================
+           START HERE PAGE
+        ===================================================== */
+
+        .start-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 90px;
+            background:
+                radial-gradient(
+                    circle at 75% 35%,
+                    rgba(0, 254, 226, 0.07),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 20% 25%,
+                    rgba(254, 165, 0, 0.08),
+                    transparent 32%
+                );
+        }
+
+        .start-hero::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            right: -180px;
+            top: 0;
+            border-radius: 50%;
+            background: rgba(0, 254, 226, 0.035);
+            filter: blur(100px);
+            pointer-events: none;
+        }
+
+        .start-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .start-hero h1 {
+            margin-top: 18px;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 0.98;
+            letter-spacing: -0.06em;
+        }
+
+        .start-hero p {
+            max-width: 700px;
+            margin: 25px auto 0;
+            color: var(--text-soft);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .start-hero-actions {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .journey-progress {
+            margin-top: 55px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .journey-step {
+            position: relative;
+            padding: 15px 10px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.018);
+        }
+
+        .journey-step span {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.68rem;
+            font-weight: 800;
+        }
+
+        .journey-step small {
+            display: block;
+            margin-top: 5px;
+            color: var(--text-muted);
+            font-size: 0.62rem;
+        }
+
+        .journey-section {
+            position: relative;
+        }
+
+        .step-card {
+            position: relative;
+            overflow: hidden;
+            padding: 40px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.012)
+                );
+            box-shadow: 0 15px 50px rgba(0,0,0,0.18);
+        }
+
+        .step-card + .step-card {
+            margin-top: 30px;
+        }
+
+        .step-card.featured {
+            border-color: rgba(254,165,0,0.25);
+        }
+
+        .step-number {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            color: rgba(254,165,0,0.22);
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+
+        .step-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .step-icon {
+            width: 68px;
+            height: 68px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(254,165,0,0.28);
+            border-radius: 18px;
+            background: rgba(254,165,0,0.06);
+            color: var(--gold-light);
+        }
+
+        .step-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .step-content h2 {
+            margin-top: 18px;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+        }
+
+        .step-content > p {
+            margin-top: 18px;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+
+        .step-highlights {
+            margin-top: 25px;
+            display: grid;
+            gap: 13px;
+        }
+
+        .step-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--text-soft);
+            font-size: 0.78rem;
+        }
+
+        .step-highlight svg {
+            flex-shrink: 0;
+            width: 16px;
+            color: var(--success);
+            margin-top: 3px;
+        }
+
+        .step-action {
+            margin-top: 28px;
+        }
+
+        .step-visual {
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dashboard-card {
+            width: 100%;
+            min-height: 290px;
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(0,254,226,0.07),
+                    transparent 40%
+                ),
+                #080d13;
+            box-shadow: var(--shadow);
+        }
+
+        .dashboard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dashboard-top strong {
+            font-size: 0.8rem;
+        }
+
+        .dashboard-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--success);
+            font-size: 0.62rem;
+            font-weight: 800;
+        }
+
+        .dashboard-body {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .dashboard-box {
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .dashboard-box span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.6rem;
+        }
+
+        .dashboard-box strong {
+            display: block;
+            margin-top: 6px;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .path-choice-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-top: 35px;
+        }
+
+        .path-choice {
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.012)
+                );
+        }
+
+        .path-choice.featured {
+            border-color: rgba(0,254,226,0.24);
+            background:
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(0,254,226,0.08),
+                    transparent 35%
+                ),
+                rgba(255,255,255,0.02);
+        }
+
+        .path-choice .card-icon {
+            margin-bottom: 20px;
+        }
+
+        .path-choice h3 {
+            font-size: 1.35rem;
+        }
+
+        .path-choice p {
+            margin-top: 12px;
+            color: var(--text-soft);
+            font-size: 0.8rem;
+            line-height: 1.75;
+        }
+
+        .choice-list {
+            margin-top: 20px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .choice-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            color: var(--text-soft);
+            font-size: 0.75rem;
+        }
+
+        .choice-list svg {
+            width: 15px;
+            flex-shrink: 0;
+            color: var(--success);
+            margin-top: 2px;
+        }
+
+        .mpesa-panel {
+            margin-top: 25px;
+            padding: 25px;
+            border: 1px solid rgba(0,254,226,0.16);
+            border-radius: 16px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,254,226,0.05),
+                    rgba(255,255,255,0.015)
+                );
+        }
+
+        .mpesa-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .mpesa-stat {
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+            text-align: center;
+        }
+
+        .mpesa-stat strong {
+            display: block;
+            color: var(--gold-light);
+            font-size: 1.1rem;
+        }
+
+        .mpesa-stat span {
+            display: block;
+            margin-top: 4px;
+            color: var(--text-muted);
+            font-size: 0.62rem;
+        }
+
+        .split-paths {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .support-card {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: rgba(255,255,255,0.018);
+        }
+
+        .support-card h3 {
+            margin-top: 18px;
+            font-size: 1rem;
+        }
+
+        .support-card p {
+            margin-top: 10px;
+            color: var(--text-soft);
+            font-size: 0.78rem;
+            line-height: 1.75;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .ecosystem-item {
+            padding: 22px 16px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            text-align: center;
+            background: rgba(255,255,255,0.018);
+        }
+
+        .ecosystem-item svg {
+            width: 24px;
+            height: 24px;
+            color: var(--gold-light);
+        }
+
+        .ecosystem-item strong {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.73rem;
+        }
+
+        .ecosystem-item span {
+            display: block;
+            margin-top: 4px;
+            color: var(--text-muted);
+            font-size: 0.6rem;
+        }
+
+        .faq-list {
+            max-width: 850px;
+            margin: 0 auto;
+            display: grid;
+            gap: 10px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.018);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            color: var(--text);
+            background: transparent;
+            text-align: left;
+            font-size: 0.78rem;
+            font-weight: 750;
+        }
+
+        .faq-question svg {
+            width: 17px;
+            color: var(--gold-light);
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-soft);
+            font-size: 0.74rem;
+            line-height: 1.75;
+        }
+
+        .start-final {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 900px) {
+
+            .journey-progress {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .step-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .split-paths,
+            .path-choice-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ecosystem-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .start-hero {
+                padding: 80px 0 60px;
+            }
+
+            .start-hero h1 {
+                font-size: clamp(2.5rem, 13vw, 4rem);
+            }
+
+            .journey-progress {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .step-card {
+                padding: 25px;
+            }
+
+            .dashboard-body {
+                grid-template-columns: 1fr;
+            }
+
+            .mpesa-stat-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ecosystem-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER / NAVIGATION
+====================================================== -->
+
+<header class="site-header">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="nav-brand">
+
+            <img
+                src="images/logo.png"
+                alt="VANTYX TRADERS KENYA FX"
+                class="nav-logo"
+            >
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a href="index.html" class="nav-link">
+                Home
+            </a>
+
+            <a href="start-here.html" class="nav-link active">
+                Start Here
+            </a>
+
+            <a href="software.html" class="nav-link">
+                Softwares
+            </a>
+
+            <a href="courses.html" class="nav-link">
+                Learn
+            </a>
+
+            <a href="live-analysis.html" class="nav-link">
+                Live Analysis
+            </a>
+
+            <a href="tools.html" class="nav-link">
+                Tools
+            </a>
+
+            <a href="testimonials.html" class="nav-link">
+                Testimonials
+            </a>
+
+            <a href="contact.html" class="nav-link">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a href="login.html" class="nav-login">
+                Login
+            </a>
+
+            <a href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer" class="nav-cta">
+                TradingView
+                <i data-lucide="external-link"></i>
+            </a>
+
+            <a href="https://www.metatrader5.com/" target="_blank" rel="noopener noreferrer" class="nav-cta">
+                MT5
+                <i data-lucide="external-link"></i>
+            </a>
+
+        </div>
+
+
+        <button
+            class="mobile-menu-toggle"
+            id="mobile-menu-toggle"
+            type="button"
+            aria-label="Open navigation">
+
+            <i data-lucide="menu"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="mobile-menu" data-mobile-menu>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="start-here.html">
+            Start Here
+        </a>
+
+        <a href="software.html">
+            Softwares
+        </a>
+
+        <a href="courses.html">
+            Learn / Courses
+        </a>
+
+        <a href="live-analysis.html">
+            Live Analysis
+        </a>
+
+        <a href="tools.html">
+            Tools
+        </a>
+
+        <a href="testimonials.html">
+            Testimonials
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="login.html">
+            Login
+        </a>
+
+
+        <div class="mobile-market-buttons">
+
+            <a
+                href="https://www.tradingview.com/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                TradingView
+
+            </a>
+
+            <a
+                href="https://www.metatrader5.com/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                MT5
+
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MARKET TICKER
+====================================================== -->
+
+<div class="market-ticker">
+
+    <div class="ticker-track">
+
+        <span class="ticker-item">
+
+            <span class="live-dot"></span>
+
+            LIVE MARKET
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            XAUUSD
+
+            <strong>
+                2,514.82
+            </strong>
+
+            <span class="text-success">
+                +0.82%
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            EURUSD
+
+            <strong>
+                1.1742
+            </strong>
+
+            <span class="text-success">
+                +0.31%
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            GBPUSD
+
+            <strong>
+                1.3548
+            </strong>
+
+            <span class="text-danger">
+                -0.18%
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            BTCUSD
+
+            <strong>
+                118,420
+            </strong>
+
+            <span class="text-success">
+                +1.42%
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            VOLATILITY 100
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                ACTIVE
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            DERIV
+
+            <strong>
+                LIVE
+            </strong>
+
+            <span class="text-success">
+                CONNECTED
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            <span class="live-dot"></span>
+
+            LIVE MARKET
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            XAUUSD
+
+            <strong>
+                2,514.82
+            </strong>
+
+            <span class="text-success">
+                +0.82%
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            EURUSD
+
+            <strong>
+                1.1742
+            </strong>
+
+            <span class="text-success">
+                +0.31%
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            GBPUSD
+
+            <strong>
+                1.3548
+            </strong>
+
+            <span class="text-danger">
+                -0.18%
+            </span>
+
+        </span>
+
+
+        <span class="ticker-item">
+
+            BTCUSD
+
+            <strong>
+                118,420
+            </strong>
+
+            <span class="text-success">
+                +1.42%
+            </span>
+
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN
+====================================================== -->
+
+<main>
+
+
+
+<!-- =====================================================
+     START HERO
+====================================================== -->
+
+<section class="start-hero">
+
+    <div class="container">
+
+        <div class="start-hero-content">
+
+            <span class="section-label">
+                Your Trading Journey Starts Here
+            </span>
+
+
+            <h1>
+
+                Everything You Need To
+
+                <span class="gradient-text">
+                    Start Trading
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                No experience needed. We give you the
+                tools, education, risk framework and
+                community. You bring the discipline.
+
+            </p>
+
+
+            <div class="start-hero-actions">
+
+                <a
+                    href="https://track.deriv.com/_VTH9KzYIL1T1hit6RV3zsGNd7ZgqdRLk/1/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary">
+
+                    Create Deriv Account
+
+                    <i data-lucide="arrow-up-right"></i>
+
+                </a>
+
+
+                <a
+                    href="#journey"
+                    class="btn btn-secondary">
+
+                    See How It Works
+
+                    <i data-lucide="arrow-down"></i>
+
+                </a>
+
+            </div>
+
+
+            <div class="journey-progress">
+
+                <div class="journey-step">
+
+                    <span>
+                        01
+                    </span>
+
+                    <small>
+                        Account
+                    </small>
+
+                </div>
+
+
+                <div class="journey-step">
+
+                    <span>
+                        02
+                    </span>
+
+                    <small>
+                        Choose Path
+                    </small>
+
+                </div>
